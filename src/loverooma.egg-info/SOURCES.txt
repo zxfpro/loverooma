@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+src/loverooma/__init__.py
+src/loverooma/core.py
+src/loverooma/log.py
+src/loverooma/server.py
+src/loverooma.egg-info/PKG-INFO
+src/loverooma.egg-info/SOURCES.txt
+src/loverooma.egg-info/dependency_links.txt
+src/loverooma.egg-info/requires.txt
+src/loverooma.egg-info/top_level.txt
+tests/test_main.py
