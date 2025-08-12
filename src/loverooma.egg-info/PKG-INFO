@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: loverooma
-Version: 0.1.1
+Version: 0.1.2
 Summary: Add your description here
 Requires-Python: >=3.10
 Description-Content-Type: text/markdown
@@ -10,4 +10,15 @@ Requires-Dist: llama-index-vector-stores-qdrant>=0.7.1
 Requires-Dist: pyyaml>=6.0.2
 Requires-Dist: qdrant-client>=1.15.1
 Requires-Dist: toml==0.10.2
+Requires-Dist: uvicorn>=0.35.0
 Requires-Dist: volcengine-python-sdk>=4.0.10
+
+
+
+# 推荐算法用途
+直接用id 代替用户 text 作为用户的概述和标签
+基于这个用户的标签描述拖投影和搜索
+
+# 爱心小屋用途
+pass
+
