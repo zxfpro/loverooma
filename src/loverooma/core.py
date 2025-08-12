@@ -1,6 +1,5 @@
 # 链接数据库
 
-
 import importlib
 import yaml
 import qdrant_client
@@ -95,16 +94,25 @@ class Desensitization():
         self.model_name = self.config.get("chat_model_name",'')
 
     def _prompt_chat(self,prompt:str):
-        response = self.client.responses.create(
+        response = self.client.chat.completions.create(
             model= self.model_name,
-            input= prompt
+            messages=[
+                        {
+                            "role": "system",
+                            "content": [
+                                {"type": "text", "text": prompt },
+                            ],
+                        }
+                    ],
         )
-
-        print(response)
-        return prompt
+        result = response.choices[0].message.content
+        return result
     
     def _postprocess(self,eva_result:str):
-        return eva_result
+        if 'true' in eva_result:
+            return True
+        else:
+            return False
 
     def desensitization(self,text):
         desensitization_prompt = self.config.get("Desensitization_prompt","")
@@ -112,9 +120,11 @@ class Desensitization():
         for i in range(self.config.get("roll_time",3)):
             logger.info(i)
             des_result = self._prompt_chat(desensitization_prompt.format(text = text))
-            eva_result = self._prompt_chat(evaluation_prompt.format(des_result = des_result))
+            print(des_result,'des_result')
 
+            eva_result = self._prompt_chat(evaluation_prompt.format(des_result = des_result))
+            print(eva_result,'eva_result')
             if self._postprocess(eva_result):
-                return eva_result
-        return "error"
+                return des_result
+        return "脱敏失败"
 

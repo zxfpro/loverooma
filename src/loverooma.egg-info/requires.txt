@@ -1,1 +1,7 @@
+fastapi>=0.116.1
+llama-index>=0.13.1
+llama-index-vector-stores-qdrant>=0.7.1
+pyyaml>=6.0.2
+qdrant-client>=1.15.1
 toml==0.10.2
+volcengine-python-sdk>=4.0.10

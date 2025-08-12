@@ -1,9 +1,7 @@
 
-
 from fastapi import FastAPI, HTTPException, Header, status
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
-from fastapi import FastAPI
 from loverooma.core import EmbeddingPool,Desensitization
 from loverooma.log import Log
 

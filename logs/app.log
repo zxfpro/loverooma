@@ -712,3 +712,633 @@
 2025-07-23 16:17:52,340 - DEBUG - root - core:79 - [NodeWithScore(node=TextNode(id_='25d06aa3-3c94-4f1e-a2f4-665997ab3327', embedding=None, metadata={}, excluded_embed_metadata_keys=[], excluded_llm_metadata_keys=[], relationships={<NodeRelationship.SOURCE: '1'>: RelatedNodeInfo(node_id='3jf', node_type='4', metadata={}, hash='d7914fe546b684688bb95f4f888a92dfc680603a75f23eb823658031fff766d9')}, metadata_template='{key}: {value}', metadata_separator='\n', text='hello', mimetype='text/plain', start_char_idx=0, end_char_idx=5, metadata_seperator='\n', text_template='{metadata_str}\n\n{content}'), score=0.9986828), NodeWithScore(node=TextNode(id_='7e4a767e-ec72-4248-8bdf-3c104fdc50f9', embedding=None, metadata={}, excluded_embed_metadata_keys=[], excluded_llm_metadata_keys=[], relationships={<NodeRelationship.SOURCE: '1'>: RelatedNodeInfo(node_id='1234', node_type='4', metadata={}, hash='dd2fc0c0497985010b638844a9268859a88a83953d2be5009a6c90152a1622a4')}, metadata_template='{key}: {value}', metadata_separator='\n', text='你好', mimetype='text/plain', start_char_idx=0, end_char_idx=2, metadata_seperator='\n', text_template='{metadata_str}\n\n{content}'), score=0.9559175), NodeWithScore(node=TextNode(id_='21168b60-0a93-415e-b4d6-06ba4b07d7e4', embedding=None, metadata={}, excluded_embed_metadata_keys=[], excluded_llm_metadata_keys=[], relationships={<NodeRelationship.SOURCE: '1'>: RelatedNodeInfo(node_id='ddcgscccdfcccd', node_type='4', metadata={}, hash='04c7fc6263affb93c52181acdede080f7cc2539c03ee8ddd85fb43f10f5b6a6a')}, metadata_template='{key}: {value}', metadata_separator='\n', text='hello332vv', mimetype='text/plain', start_char_idx=0, end_char_idx=10, metadata_seperator='\n', text_template='{metadata_str}\n\n{content}'), score=0.93806183)]
 2025-07-23 17:01:34,691 - DEBUG - httpcore.connection - _trace:47 - close.started
 2025-07-23 17:01:34,698 - DEBUG - httpcore.connection - _trace:47 - close.complete
+2025-08-12 10:13:00,662 - INFO - root - core:47 - reload
+2025-08-12 10:13:00,936 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='localhost' port=6333 local_address=None timeout=5.0 socket_options=None
+2025-08-12 10:13:00,937 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x12eb0ebc0>
+2025-08-12 10:13:00,938 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'GET']>
+2025-08-12 10:13:00,938 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-12 10:13:00,938 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'GET']>
+2025-08-12 10:13:00,939 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-12 10:13:00,939 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'GET']>
+2025-08-12 10:13:00,953 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'transfer-encoding', b'chunked'), (b'content-type', b'application/json'), (b'content-encoding', b'gzip'), (b'vary', b'accept-encoding, Origin, Access-Control-Request-Method, Access-Control-Request-Headers'), (b'date', b'Tue, 12 Aug 2025 02:13:00 GMT')])
+2025-08-12 10:13:00,954 - INFO - httpx - _client:1025 - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 10:13:00,954 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'GET']>
+2025-08-12 10:13:00,955 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-12 10:13:00,955 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-12 10:13:00,955 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-12 10:13:00,955 - DEBUG - httpcore.connection - _trace:47 - close.started
+2025-08-12 10:13:00,955 - DEBUG - httpcore.connection - _trace:47 - close.complete
+2025-08-12 10:13:00,955 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='localhost' port=6333 local_address=None timeout=5.0 socket_options=None
+2025-08-12 10:13:00,957 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x12ed7f250>
+2025-08-12 10:13:00,957 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'GET']>
+2025-08-12 10:13:00,957 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-12 10:13:00,957 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'GET']>
+2025-08-12 10:13:00,957 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-12 10:13:00,957 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'GET']>
+2025-08-12 10:13:00,959 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'transfer-encoding', b'chunked'), (b'content-type', b'application/json'), (b'content-encoding', b'gzip'), (b'vary', b'accept-encoding, Origin, Access-Control-Request-Method, Access-Control-Request-Headers'), (b'date', b'Tue, 12 Aug 2025 02:13:00 GMT')])
+2025-08-12 10:13:00,960 - INFO - httpx - _client:1025 - HTTP Request: GET http://localhost:6333/collections/loveroom/exists "HTTP/1.1 200 OK"
+2025-08-12 10:13:00,960 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'GET']>
+2025-08-12 10:13:00,960 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-12 10:13:00,960 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-12 10:13:00,960 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-12 10:13:00,960 - DEBUG - httpcore.connection - _trace:47 - close.started
+2025-08-12 10:13:00,961 - DEBUG - httpcore.connection - _trace:47 - close.complete
+2025-08-12 10:13:02,748 - DEBUG - root - core:61 - == reload start ==
+2025-08-12 10:13:02,749 - DEBUG - root - core:62 - callback_manager=<llama_index.core.callbacks.base.CallbackManager object at 0x12eb0e740> similarity_cutoff=0.98
+2025-08-12 10:13:22,868 - INFO - root - core:47 - reload
+2025-08-12 10:13:22,996 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='localhost' port=6333 local_address=None timeout=5.0 socket_options=None
+2025-08-12 10:13:22,998 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x134828a00>
+2025-08-12 10:13:22,998 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'GET']>
+2025-08-12 10:13:22,998 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-12 10:13:22,998 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'GET']>
+2025-08-12 10:13:22,998 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-12 10:13:22,998 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'GET']>
+2025-08-12 10:13:23,009 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'transfer-encoding', b'chunked'), (b'vary', b'accept-encoding, Origin, Access-Control-Request-Method, Access-Control-Request-Headers'), (b'content-type', b'application/json'), (b'content-encoding', b'gzip'), (b'date', b'Tue, 12 Aug 2025 02:13:22 GMT')])
+2025-08-12 10:13:23,009 - INFO - httpx - _client:1025 - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 10:13:23,009 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'GET']>
+2025-08-12 10:13:23,010 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-12 10:13:23,010 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-12 10:13:23,010 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-12 10:13:23,010 - DEBUG - httpcore.connection - _trace:47 - close.started
+2025-08-12 10:13:23,010 - DEBUG - httpcore.connection - _trace:47 - close.complete
+2025-08-12 10:13:23,010 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='localhost' port=6333 local_address=None timeout=5.0 socket_options=None
+2025-08-12 10:13:23,015 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1348293c0>
+2025-08-12 10:13:23,015 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'GET']>
+2025-08-12 10:13:23,015 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-12 10:13:23,015 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'GET']>
+2025-08-12 10:13:23,015 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-12 10:13:23,015 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'GET']>
+2025-08-12 10:13:23,024 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'transfer-encoding', b'chunked'), (b'content-type', b'application/json'), (b'content-encoding', b'gzip'), (b'vary', b'accept-encoding, Origin, Access-Control-Request-Method, Access-Control-Request-Headers'), (b'date', b'Tue, 12 Aug 2025 02:13:22 GMT')])
+2025-08-12 10:13:23,025 - INFO - httpx - _client:1025 - HTTP Request: GET http://localhost:6333/collections/loveroom/exists "HTTP/1.1 200 OK"
+2025-08-12 10:13:23,025 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'GET']>
+2025-08-12 10:13:23,025 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-12 10:13:23,025 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-12 10:13:23,025 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-12 10:13:23,025 - DEBUG - httpcore.connection - _trace:47 - close.started
+2025-08-12 10:13:23,025 - DEBUG - httpcore.connection - _trace:47 - close.complete
+2025-08-12 10:13:23,288 - DEBUG - root - core:61 - == reload start ==
+2025-08-12 10:13:23,288 - DEBUG - root - core:62 - callback_manager=<llama_index.core.callbacks.base.CallbackManager object at 0x1304df700> similarity_cutoff=0.98
+2025-08-12 10:13:23,373 - DEBUG - asyncio - selector_events:54 - Using selector: KqueueSelector
+2025-08-12 10:13:54,937 - INFO - root - server:162 - Received text for desensitization: '你好, 张仲景...'
+2025-08-12 10:13:54,938 - INFO - root - core:115 - 0
+2025-08-12 10:13:55,405 - DEBUG - openai._base_client - _base_client:482 - Request options: {'method': 'post', 'url': '/responses', 'files': None, 'idempotency_key': 'stainless-python-retry-3da0bdb0-8560-4427-8145-d80d000e2d96', 'json_data': {'input': '校验 你好, 张仲景 所有的名字用化名代替(小美 小张)', 'model': 'doubao-seed-1-6-250615'}}
+2025-08-12 10:13:55,493 - DEBUG - openai._base_client - _base_client:978 - Sending HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/responses
+2025-08-12 10:13:55,494 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='ark.cn-beijing.volces.com' port=443 local_address=None timeout=5.0 socket_options=None
+2025-08-12 10:13:55,529 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x134ca4ac0>
+2025-08-12 10:13:55,530 - DEBUG - httpcore.connection - _trace:47 - start_tls.started ssl_context=<ssl.SSLContext object at 0x1306c2d40> server_hostname='ark.cn-beijing.volces.com' timeout=5.0
+2025-08-12 10:13:55,637 - DEBUG - httpcore.connection - _trace:47 - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x134ca4dc0>
+2025-08-12 10:13:55,637 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'POST']>
+2025-08-12 10:13:55,638 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-12 10:13:55,638 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'POST']>
+2025-08-12 10:13:55,638 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-12 10:13:55,638 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'POST']>
+2025-08-12 10:13:55,728 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 403, b'Forbidden', [(b'server', b'istio-envoy'), (b'date', b'Tue, 12 Aug 2025 02:13:55 GMT'), (b'content-type', b'application/json; charset=utf-8'), (b'content-encoding', b'gzip'), (b'content-length', b'204'), (b'x-client-request-id', b'unknown-20250812101355-sIJhfJzk'), (b'vary', b'Accept-Encoding'), (b'x-envoy-upstream-service-time', b'77'), (b'x-request-id', b'0217549648356886c538cdb85280b87fd1d855e8af4abb88a48f4')])
+2025-08-12 10:13:55,729 - INFO - httpx - _client:1025 - HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/responses "HTTP/1.1 403 Forbidden"
+2025-08-12 10:13:55,729 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'POST']>
+2025-08-12 10:13:55,730 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-12 10:13:55,730 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-12 10:13:55,730 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-12 10:13:55,730 - DEBUG - openai._base_client - _base_client:1016 - HTTP Response: POST https://ark.cn-beijing.volces.com/api/v3/responses "403 Forbidden" Headers({'server': 'istio-envoy', 'date': 'Tue, 12 Aug 2025 02:13:55 GMT', 'content-type': 'application/json; charset=utf-8', 'content-encoding': 'gzip', 'content-length': '204', 'x-client-request-id': 'unknown-20250812101355-sIJhfJzk', 'vary': 'Accept-Encoding', 'x-envoy-upstream-service-time': '77', 'x-request-id': '0217549648356886c538cdb85280b87fd1d855e8af4abb88a48f4'})
+2025-08-12 10:13:55,730 - DEBUG - openai._base_client - _base_client:1024 - request_id: 0217549648356886c538cdb85280b87fd1d855e8af4abb88a48f4
+2025-08-12 10:13:55,731 - DEBUG - openai._base_client - _base_client:1029 - Encountered httpx.HTTPStatusError
+Traceback (most recent call last):
+  File "/Users/zhaoxuefeng/GitHub/loverooma/.venv/lib/python3.10/site-packages/openai/_base_client.py", line 1027, in request
+    response.raise_for_status()
+  File "/Users/zhaoxuefeng/GitHub/loverooma/.venv/lib/python3.10/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '403 Forbidden' for url 'https://ark.cn-beijing.volces.com/api/v3/responses'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
+2025-08-12 10:13:55,733 - DEBUG - openai._base_client - _base_client:782 - Not retrying
+2025-08-12 10:13:55,733 - DEBUG - openai._base_client - _base_client:1046 - Re-raising status error
+2025-08-12 10:13:55,734 - ERROR - root - server:184 - An unexpected error occurred during desensitization: Error code: 403 - {'error': {'code': 'AccessDenied', 'message': 'The request failed because you do not have access to the requested resource. `responses_api` Request id: 0217549648356886c538cdb85280b87fd1d855e8af4abb88a48f4', 'param': '', 'type': 'Forbidden'}}
+Traceback (most recent call last):
+  File "/Users/zhaoxuefeng/GitHub/loverooma/src/loverooma/server.py", line 163, in desensitization_endpoint
+    result = de.desensitization(text=item.text)
+  File "/Users/zhaoxuefeng/GitHub/loverooma/src/loverooma/core.py", line 116, in desensitization
+    des_result = self._prompt_chat(desensitization_prompt.format(text = text))
+  File "/Users/zhaoxuefeng/GitHub/loverooma/src/loverooma/core.py", line 97, in _prompt_chat
+    response = self.client.responses.create(
+  File "/Users/zhaoxuefeng/GitHub/loverooma/.venv/lib/python3.10/site-packages/openai/resources/responses/responses.py", line 795, in create
+    return self._post(
+  File "/Users/zhaoxuefeng/GitHub/loverooma/.venv/lib/python3.10/site-packages/openai/_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+  File "/Users/zhaoxuefeng/GitHub/loverooma/.venv/lib/python3.10/site-packages/openai/_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.PermissionDeniedError: Error code: 403 - {'error': {'code': 'AccessDenied', 'message': 'The request failed because you do not have access to the requested resource. `responses_api` Request id: 0217549648356886c538cdb85280b87fd1d855e8af4abb88a48f4', 'param': '', 'type': 'Forbidden'}}
+2025-08-12 10:14:18,452 - INFO - root - core:66 - update
+2025-08-12 10:14:18,454 - WARNING - llama_index.core.indices.base - base:365 - update() is now deprecated, please refer to update_ref_doc() to update ingested documents+nodes.Use aupdate_ref_docs() for an asynchronous implementation
+2025-08-12 10:14:18,459 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='localhost' port=6333 local_address=None timeout=5.0 socket_options=None
+2025-08-12 10:14:18,461 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x134beffd0>
+2025-08-12 10:14:18,462 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'POST']>
+2025-08-12 10:14:18,462 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-12 10:14:18,462 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'POST']>
+2025-08-12 10:14:18,462 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-12 10:14:18,462 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'POST']>
+2025-08-12 10:14:18,503 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'transfer-encoding', b'chunked'), (b'content-type', b'application/json'), (b'content-encoding', b'gzip'), (b'vary', b'accept-encoding, Origin, Access-Control-Request-Method, Access-Control-Request-Headers'), (b'date', b'Tue, 12 Aug 2025 02:14:18 GMT')])
+2025-08-12 10:14:18,504 - INFO - httpx - _client:1025 - HTTP Request: POST http://localhost:6333/collections/loveroom/points/delete?wait=true "HTTP/1.1 404 Not Found"
+2025-08-12 10:14:18,504 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'POST']>
+2025-08-12 10:14:18,505 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-12 10:14:18,505 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-12 10:14:18,505 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-12 10:14:18,505 - DEBUG - httpcore.connection - _trace:47 - close.started
+2025-08-12 10:14:18,505 - DEBUG - httpcore.connection - _trace:47 - close.complete
+2025-08-12 10:14:18,505 - ERROR - root - server:97 - Error updating EmbeddingPool for ID '3jf': Unexpected Response: 404 (Not Found)
+Raw response content:
+b'{"status":{"error":"Not found: Collection `loveroom` doesn\'t exist!"},"time":0.001787708}'
+2025-08-12 10:16:20,631 - INFO - root - core:66 - update
+2025-08-12 10:16:20,633 - WARNING - llama_index.core.indices.base - base:365 - update() is now deprecated, please refer to update_ref_doc() to update ingested documents+nodes.Use aupdate_ref_docs() for an asynchronous implementation
+2025-08-12 10:16:20,637 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='localhost' port=6333 local_address=None timeout=5.0 socket_options=None
+2025-08-12 10:16:20,638 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x134c76620>
+2025-08-12 10:16:20,638 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'POST']>
+2025-08-12 10:16:20,638 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-12 10:16:20,638 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'POST']>
+2025-08-12 10:16:20,638 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-12 10:16:20,639 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'POST']>
+2025-08-12 10:16:20,679 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'transfer-encoding', b'chunked'), (b'vary', b'accept-encoding, Origin, Access-Control-Request-Method, Access-Control-Request-Headers'), (b'content-type', b'application/json'), (b'content-encoding', b'gzip'), (b'date', b'Tue, 12 Aug 2025 02:16:20 GMT')])
+2025-08-12 10:16:20,679 - INFO - httpx - _client:1025 - HTTP Request: POST http://localhost:6333/collections/loveroom/points/delete?wait=true "HTTP/1.1 200 OK"
+2025-08-12 10:16:20,680 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'POST']>
+2025-08-12 10:16:20,680 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-12 10:16:20,680 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-12 10:16:20,680 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-12 10:16:20,680 - DEBUG - httpcore.connection - _trace:47 - close.started
+2025-08-12 10:16:20,681 - DEBUG - httpcore.connection - _trace:47 - close.complete
+2025-08-12 10:16:20,696 - DEBUG - llama_index.core.node_parser.node_utils - node_utils:44 - > Adding chunk: hello
+2025-08-12 10:16:20,708 - DEBUG - volcenginesdkarkruntime._base_client - _base_client:194 - Request options: {'method': 'post', 'url': '/embeddings', 'body': {'input': ['hello'], 'model': 'doubao-embedding-text-240715', 'user': None, 'encoding_format': 'float'}, 'files': None}
+2025-08-12 10:16:20,709 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='ark.cn-beijing.volces.com' port=443 local_address=None timeout=60.0 socket_options=None
+2025-08-12 10:16:20,729 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x134c76950>
+2025-08-12 10:16:20,729 - DEBUG - httpcore.connection - _trace:47 - start_tls.started ssl_context=<ssl.SSLContext object at 0x1306c28c0> server_hostname='ark.cn-beijing.volces.com' timeout=60.0
+2025-08-12 10:16:20,745 - DEBUG - httpcore.connection - _trace:47 - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x134c76a70>
+2025-08-12 10:16:20,745 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'POST']>
+2025-08-12 10:16:20,745 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-12 10:16:20,746 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'POST']>
+2025-08-12 10:16:20,746 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-12 10:16:20,746 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'POST']>
+2025-08-12 10:16:20,908 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'server', b'istio-envoy'), (b'date', b'Tue, 12 Aug 2025 02:16:19 GMT'), (b'content-type', b'application/json; charset=utf-8'), (b'content-length', b'24270'), (b'x-client-request-id', b'202508121016208arg2Ht6zshgu37JrAc1'), (b'x-envoy-upstream-service-time', b'121'), (b'x-request-id', b'021754964980803241a61131fecf74dbb890fd5f6990cf0ac87db')])
+2025-08-12 10:16:20,910 - INFO - httpx - _client:1025 - HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/embeddings "HTTP/1.1 200 OK"
+2025-08-12 10:16:20,911 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'POST']>
+2025-08-12 10:16:20,912 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-12 10:16:20,913 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-12 10:16:20,913 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-12 10:16:20,913 - DEBUG - volcenginesdkarkruntime._base_client - _base_client:456 - HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/embeddings "200 OK"
+2025-08-12 10:16:20,939 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='localhost' port=6333 local_address=None timeout=5.0 socket_options=None
+2025-08-12 10:16:20,941 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x134c77670>
+2025-08-12 10:16:20,941 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'PUT']>
+2025-08-12 10:16:20,941 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-12 10:16:20,942 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'PUT']>
+2025-08-12 10:16:20,942 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-12 10:16:20,942 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'PUT']>
+2025-08-12 10:16:20,952 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 409, b'Conflict', [(b'transfer-encoding', b'chunked'), (b'content-type', b'application/json'), (b'content-encoding', b'gzip'), (b'vary', b'accept-encoding, Origin, Access-Control-Request-Method, Access-Control-Request-Headers'), (b'date', b'Tue, 12 Aug 2025 02:16:20 GMT')])
+2025-08-12 10:16:20,953 - INFO - httpx - _client:1025 - HTTP Request: PUT http://localhost:6333/collections/loveroom "HTTP/1.1 409 Conflict"
+2025-08-12 10:16:20,953 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'PUT']>
+2025-08-12 10:16:20,953 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-12 10:16:20,953 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-12 10:16:20,954 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-12 10:16:20,954 - DEBUG - httpcore.connection - _trace:47 - close.started
+2025-08-12 10:16:20,954 - DEBUG - httpcore.connection - _trace:47 - close.complete
+2025-08-12 10:16:20,954 - WARNING - llama_index.vector_stores.qdrant.base - base:718 - Collection loveroom already exists, skipping collection creation.
+2025-08-12 10:16:20,955 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='localhost' port=6333 local_address=None timeout=5.0 socket_options=None
+2025-08-12 10:16:20,959 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x134c74820>
+2025-08-12 10:16:20,959 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'GET']>
+2025-08-12 10:16:20,959 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-12 10:16:20,959 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'GET']>
+2025-08-12 10:16:20,959 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-12 10:16:20,960 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'GET']>
+2025-08-12 10:16:20,969 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'transfer-encoding', b'chunked'), (b'content-type', b'application/json'), (b'content-encoding', b'gzip'), (b'vary', b'accept-encoding, Origin, Access-Control-Request-Method, Access-Control-Request-Headers'), (b'date', b'Tue, 12 Aug 2025 02:16:20 GMT')])
+2025-08-12 10:16:20,969 - INFO - httpx - _client:1025 - HTTP Request: GET http://localhost:6333/collections/loveroom "HTTP/1.1 200 OK"
+2025-08-12 10:16:20,970 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'GET']>
+2025-08-12 10:16:20,970 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-12 10:16:20,970 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-12 10:16:20,970 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-12 10:16:20,970 - DEBUG - httpcore.connection - _trace:47 - close.started
+2025-08-12 10:16:20,971 - DEBUG - httpcore.connection - _trace:47 - close.complete
+2025-08-12 10:16:21,028 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='localhost' port=6333 local_address=None timeout=5.0 socket_options=None
+2025-08-12 10:16:21,029 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x134c5fcd0>
+2025-08-12 10:16:21,029 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'PUT']>
+2025-08-12 10:16:21,030 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-12 10:16:21,030 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'PUT']>
+2025-08-12 10:16:21,030 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-12 10:16:21,030 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'PUT']>
+2025-08-12 10:16:21,047 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 400, b'Bad Request', [(b'transfer-encoding', b'chunked'), (b'vary', b'accept-encoding, Origin, Access-Control-Request-Method, Access-Control-Request-Headers'), (b'content-type', b'application/json'), (b'content-encoding', b'gzip'), (b'date', b'Tue, 12 Aug 2025 02:16:20 GMT')])
+2025-08-12 10:16:21,047 - INFO - httpx - _client:1025 - HTTP Request: PUT http://localhost:6333/collections/loveroom/points?wait=true "HTTP/1.1 400 Bad Request"
+2025-08-12 10:16:21,048 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'PUT']>
+2025-08-12 10:16:21,048 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-12 10:16:21,048 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-12 10:16:21,048 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-12 10:16:21,048 - DEBUG - httpcore.connection - _trace:47 - close.started
+2025-08-12 10:16:21,048 - DEBUG - httpcore.connection - _trace:47 - close.complete
+2025-08-12 10:16:21,051 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='localhost' port=6333 local_address=None timeout=5.0 socket_options=None
+2025-08-12 10:16:21,052 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x134c74c10>
+2025-08-12 10:16:21,052 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'PUT']>
+2025-08-12 10:16:21,053 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-12 10:16:21,053 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'PUT']>
+2025-08-12 10:16:21,053 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-12 10:16:21,053 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'PUT']>
+2025-08-12 10:16:21,057 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 400, b'Bad Request', [(b'transfer-encoding', b'chunked'), (b'content-type', b'application/json'), (b'content-encoding', b'gzip'), (b'vary', b'accept-encoding, Origin, Access-Control-Request-Method, Access-Control-Request-Headers'), (b'date', b'Tue, 12 Aug 2025 02:16:20 GMT')])
+2025-08-12 10:16:21,057 - INFO - httpx - _client:1025 - HTTP Request: PUT http://localhost:6333/collections/loveroom/points?wait=true "HTTP/1.1 400 Bad Request"
+2025-08-12 10:16:21,057 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'PUT']>
+2025-08-12 10:16:21,058 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-12 10:16:21,058 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-12 10:16:21,058 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-12 10:16:21,058 - DEBUG - httpcore.connection - _trace:47 - close.started
+2025-08-12 10:16:21,058 - DEBUG - httpcore.connection - _trace:47 - close.complete
+2025-08-12 10:16:21,059 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='localhost' port=6333 local_address=None timeout=5.0 socket_options=None
+2025-08-12 10:16:21,060 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x134c764a0>
+2025-08-12 10:16:21,061 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'PUT']>
+2025-08-12 10:16:21,061 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-12 10:16:21,061 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'PUT']>
+2025-08-12 10:16:21,061 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-12 10:16:21,061 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'PUT']>
+2025-08-12 10:16:21,066 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 400, b'Bad Request', [(b'transfer-encoding', b'chunked'), (b'content-type', b'application/json'), (b'content-encoding', b'gzip'), (b'vary', b'accept-encoding, Origin, Access-Control-Request-Method, Access-Control-Request-Headers'), (b'date', b'Tue, 12 Aug 2025 02:16:20 GMT')])
+2025-08-12 10:16:21,066 - INFO - httpx - _client:1025 - HTTP Request: PUT http://localhost:6333/collections/loveroom/points?wait=true "HTTP/1.1 400 Bad Request"
+2025-08-12 10:16:21,066 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'PUT']>
+2025-08-12 10:16:21,066 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-12 10:16:21,066 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-12 10:16:21,066 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-12 10:16:21,067 - DEBUG - httpcore.connection - _trace:47 - close.started
+2025-08-12 10:16:21,067 - DEBUG - httpcore.connection - _trace:47 - close.complete
+2025-08-12 10:16:21,067 - ERROR - root - server:97 - Error updating EmbeddingPool for ID '3jf': Unexpected Response: 400 (Bad Request)
+Raw response content:
+b'{"status":{"error":"Wrong input: Vector dimension error: expected dim: 2048, got 2560"},"time":0.001082292}'
+2025-08-12 10:17:30,067 - INFO - root - core:66 - update
+2025-08-12 10:17:30,076 - WARNING - llama_index.core.indices.base - base:365 - update() is now deprecated, please refer to update_ref_doc() to update ingested documents+nodes.Use aupdate_ref_docs() for an asynchronous implementation
+2025-08-12 10:17:30,080 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='localhost' port=6333 local_address=None timeout=5.0 socket_options=None
+2025-08-12 10:17:30,081 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x134c5e470>
+2025-08-12 10:17:30,082 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'POST']>
+2025-08-12 10:17:30,082 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-12 10:17:30,082 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'POST']>
+2025-08-12 10:17:30,082 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-12 10:17:30,082 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'POST']>
+2025-08-12 10:17:30,100 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'transfer-encoding', b'chunked'), (b'vary', b'accept-encoding, Origin, Access-Control-Request-Method, Access-Control-Request-Headers'), (b'content-type', b'application/json'), (b'content-encoding', b'gzip'), (b'date', b'Tue, 12 Aug 2025 02:17:29 GMT')])
+2025-08-12 10:17:30,100 - INFO - httpx - _client:1025 - HTTP Request: POST http://localhost:6333/collections/loveroom/points/delete?wait=true "HTTP/1.1 200 OK"
+2025-08-12 10:17:30,101 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'POST']>
+2025-08-12 10:17:30,101 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-12 10:17:30,101 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-12 10:17:30,101 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-12 10:17:30,101 - DEBUG - httpcore.connection - _trace:47 - close.started
+2025-08-12 10:17:30,101 - DEBUG - httpcore.connection - _trace:47 - close.complete
+2025-08-12 10:17:30,104 - DEBUG - llama_index.core.node_parser.node_utils - node_utils:44 - > Adding chunk: hello
+2025-08-12 10:17:30,115 - DEBUG - volcenginesdkarkruntime._base_client - _base_client:194 - Request options: {'method': 'post', 'url': '/embeddings', 'body': {'input': ['hello'], 'model': 'doubao-embedding-text-240715', 'user': None, 'encoding_format': 'float'}, 'files': None}
+2025-08-12 10:17:30,116 - DEBUG - httpcore.connection - _trace:47 - close.started
+2025-08-12 10:17:30,120 - DEBUG - httpcore.connection - _trace:47 - close.complete
+2025-08-12 10:17:30,120 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='ark.cn-beijing.volces.com' port=443 local_address=None timeout=60.0 socket_options=None
+2025-08-12 10:17:30,136 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x134c5d540>
+2025-08-12 10:17:30,136 - DEBUG - httpcore.connection - _trace:47 - start_tls.started ssl_context=<ssl.SSLContext object at 0x1306c28c0> server_hostname='ark.cn-beijing.volces.com' timeout=60.0
+2025-08-12 10:17:30,154 - DEBUG - httpcore.connection - _trace:47 - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x134c5d480>
+2025-08-12 10:17:30,154 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'POST']>
+2025-08-12 10:17:30,154 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-12 10:17:30,154 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'POST']>
+2025-08-12 10:17:30,155 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-12 10:17:30,155 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'POST']>
+2025-08-12 10:17:30,218 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'server', b'istio-envoy'), (b'date', b'Tue, 12 Aug 2025 02:17:29 GMT'), (b'content-type', b'application/json; charset=utf-8'), (b'content-length', b'24270'), (b'x-client-request-id', b'20250812101730Ws8MzwAXlnaGxpGi6pF9'), (b'x-envoy-upstream-service-time', b'39'), (b'x-request-id', b'021754965050202d53967e9117d84a63d2f39929d450f42a6621f')])
+2025-08-12 10:17:30,218 - INFO - httpx - _client:1025 - HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/embeddings "HTTP/1.1 200 OK"
+2025-08-12 10:17:30,218 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'POST']>
+2025-08-12 10:17:30,219 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-12 10:17:30,219 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-12 10:17:30,219 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-12 10:17:30,219 - DEBUG - volcenginesdkarkruntime._base_client - _base_client:456 - HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/embeddings "200 OK"
+2025-08-12 10:17:30,287 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='localhost' port=6333 local_address=None timeout=5.0 socket_options=None
+2025-08-12 10:17:30,288 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x134ba7fa0>
+2025-08-12 10:17:30,288 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'PUT']>
+2025-08-12 10:17:30,288 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-12 10:17:30,288 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'PUT']>
+2025-08-12 10:17:30,288 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-12 10:17:30,288 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'PUT']>
+2025-08-12 10:17:30,308 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'transfer-encoding', b'chunked'), (b'content-type', b'application/json'), (b'content-encoding', b'gzip'), (b'vary', b'accept-encoding, Origin, Access-Control-Request-Method, Access-Control-Request-Headers'), (b'date', b'Tue, 12 Aug 2025 02:17:30 GMT')])
+2025-08-12 10:17:30,309 - INFO - httpx - _client:1025 - HTTP Request: PUT http://localhost:6333/collections/loveroom/points?wait=true "HTTP/1.1 200 OK"
+2025-08-12 10:17:30,309 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'PUT']>
+2025-08-12 10:17:30,309 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-12 10:17:30,309 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-12 10:17:30,309 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-12 10:17:30,309 - DEBUG - httpcore.connection - _trace:47 - close.started
+2025-08-12 10:17:30,309 - DEBUG - httpcore.connection - _trace:47 - close.complete
+2025-08-12 10:17:36,380 - INFO - root - core:76 - search
+2025-08-12 10:17:36,382 - DEBUG - volcenginesdkarkruntime._base_client - _base_client:194 - Request options: {'method': 'post', 'url': '/embeddings', 'body': {'input': ['hello'], 'model': 'doubao-embedding-text-240715', 'user': None, 'encoding_format': 'float'}, 'files': None}
+2025-08-12 10:17:36,382 - DEBUG - httpcore.connection - _trace:47 - close.started
+2025-08-12 10:17:36,383 - DEBUG - httpcore.connection - _trace:47 - close.complete
+2025-08-12 10:17:36,383 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='ark.cn-beijing.volces.com' port=443 local_address=None timeout=60.0 socket_options=None
+2025-08-12 10:17:36,400 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x134ba6f20>
+2025-08-12 10:17:36,400 - DEBUG - httpcore.connection - _trace:47 - start_tls.started ssl_context=<ssl.SSLContext object at 0x1306c28c0> server_hostname='ark.cn-beijing.volces.com' timeout=60.0
+2025-08-12 10:17:36,417 - DEBUG - httpcore.connection - _trace:47 - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x134ba6ef0>
+2025-08-12 10:17:36,418 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'POST']>
+2025-08-12 10:17:36,421 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-12 10:17:36,421 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'POST']>
+2025-08-12 10:17:36,421 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-12 10:17:36,421 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'POST']>
+2025-08-12 10:17:36,502 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'server', b'istio-envoy'), (b'date', b'Tue, 12 Aug 2025 02:17:36 GMT'), (b'content-type', b'application/json; charset=utf-8'), (b'content-length', b'24270'), (b'x-client-request-id', b'20250812101736pfC9TOkkd6iAP0onie9k'), (b'x-envoy-upstream-service-time', b'47'), (b'x-request-id', b'0217549650564728cf51071db1df5cf0f63a6c7b01a6ed834551c')])
+2025-08-12 10:17:36,504 - INFO - httpx - _client:1025 - HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/embeddings "HTTP/1.1 200 OK"
+2025-08-12 10:17:36,505 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'POST']>
+2025-08-12 10:17:36,505 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-12 10:17:36,506 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-12 10:17:36,506 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-12 10:17:36,507 - DEBUG - volcenginesdkarkruntime._base_client - _base_client:456 - HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/embeddings "200 OK"
+2025-08-12 10:17:36,538 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='localhost' port=6333 local_address=None timeout=5.0 socket_options=None
+2025-08-12 10:17:36,540 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x134c5d750>
+2025-08-12 10:17:36,540 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'POST']>
+2025-08-12 10:17:36,540 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-12 10:17:36,540 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'POST']>
+2025-08-12 10:17:36,540 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-12 10:17:36,540 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'POST']>
+2025-08-12 10:17:36,570 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'transfer-encoding', b'chunked'), (b'content-type', b'application/json'), (b'content-encoding', b'gzip'), (b'vary', b'accept-encoding, Origin, Access-Control-Request-Method, Access-Control-Request-Headers'), (b'date', b'Tue, 12 Aug 2025 02:17:36 GMT')])
+2025-08-12 10:17:36,571 - INFO - httpx - _client:1025 - HTTP Request: POST http://localhost:6333/collections/loveroom/points/search "HTTP/1.1 200 OK"
+2025-08-12 10:17:36,571 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'POST']>
+2025-08-12 10:17:36,571 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-12 10:17:36,571 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-12 10:17:36,571 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-12 10:17:36,572 - DEBUG - httpcore.connection - _trace:47 - close.started
+2025-08-12 10:17:36,572 - DEBUG - httpcore.connection - _trace:47 - close.complete
+2025-08-12 10:17:36,574 - DEBUG - llama_index.core.indices.utils - utils:67 - > Top 1 nodes:
+> [Node b14d87f4-097f-44ce-819a-37d5a9512305] [Similarity score:             1.0] hello
+2025-08-12 10:17:36,574 - DEBUG - root - core:78 - [NodeWithScore(node=TextNode(id_='b14d87f4-097f-44ce-819a-37d5a9512305', embedding=None, metadata={}, excluded_embed_metadata_keys=[], excluded_llm_metadata_keys=[], relationships={<NodeRelationship.SOURCE: '1'>: RelatedNodeInfo(node_id='3jf', node_type='4', metadata={}, hash='d7914fe546b684688bb95f4f888a92dfc680603a75f23eb823658031fff766d9')}, metadata_template='{key}: {value}', metadata_separator='\n', text='hello', mimetype='text/plain', start_char_idx=0, end_char_idx=5, metadata_seperator='\n', text_template='{metadata_str}\n\n{content}'), score=1.0000002)]
+2025-08-12 10:17:43,911 - INFO - root - server:162 - Received text for desensitization: '你好, 张仲景...'
+2025-08-12 10:17:43,913 - INFO - root - core:115 - 0
+2025-08-12 10:17:43,915 - DEBUG - openai._base_client - _base_client:482 - Request options: {'method': 'post', 'url': '/responses', 'files': None, 'idempotency_key': 'stainless-python-retry-286237c0-2b36-4e19-8622-0cb94b759aa1', 'json_data': {'input': '校验 你好, 张仲景 所有的名字用化名代替(小美 小张)', 'model': 'doubao-seed-1-6-250615'}}
+2025-08-12 10:17:43,916 - DEBUG - openai._base_client - _base_client:978 - Sending HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/responses
+2025-08-12 10:17:43,916 - DEBUG - httpcore.connection - _trace:47 - close.started
+2025-08-12 10:17:43,916 - DEBUG - httpcore.connection - _trace:47 - close.complete
+2025-08-12 10:17:43,917 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='ark.cn-beijing.volces.com' port=443 local_address=None timeout=5.0 socket_options=None
+2025-08-12 10:17:43,933 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x134c5e9e0>
+2025-08-12 10:17:43,933 - DEBUG - httpcore.connection - _trace:47 - start_tls.started ssl_context=<ssl.SSLContext object at 0x1306c2d40> server_hostname='ark.cn-beijing.volces.com' timeout=5.0
+2025-08-12 10:17:43,947 - DEBUG - httpcore.connection - _trace:47 - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x134c5e560>
+2025-08-12 10:17:43,947 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'POST']>
+2025-08-12 10:17:43,947 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-12 10:17:43,947 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'POST']>
+2025-08-12 10:17:43,948 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-12 10:17:43,948 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'POST']>
+2025-08-12 10:17:43,979 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 403, b'Forbidden', [(b'server', b'istio-envoy'), (b'date', b'Tue, 12 Aug 2025 02:17:43 GMT'), (b'content-type', b'application/json; charset=utf-8'), (b'content-encoding', b'gzip'), (b'content-length', b'205'), (b'vary', b'Accept-Encoding'), (b'x-client-request-id', b'unknown-20250812101743-qQQXmYcn'), (b'x-envoy-upstream-service-time', b'12'), (b'x-request-id', b'0217549650639950c6bbe1681ccb3bc505384f293d30c2fd6aebb')])
+2025-08-12 10:17:43,980 - INFO - httpx - _client:1025 - HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/responses "HTTP/1.1 403 Forbidden"
+2025-08-12 10:17:43,980 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'POST']>
+2025-08-12 10:17:43,980 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-12 10:17:43,980 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-12 10:17:43,980 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-12 10:17:43,981 - DEBUG - openai._base_client - _base_client:1016 - HTTP Response: POST https://ark.cn-beijing.volces.com/api/v3/responses "403 Forbidden" Headers({'server': 'istio-envoy', 'date': 'Tue, 12 Aug 2025 02:17:43 GMT', 'content-type': 'application/json; charset=utf-8', 'content-encoding': 'gzip', 'content-length': '205', 'vary': 'Accept-Encoding', 'x-client-request-id': 'unknown-20250812101743-qQQXmYcn', 'x-envoy-upstream-service-time': '12', 'x-request-id': '0217549650639950c6bbe1681ccb3bc505384f293d30c2fd6aebb'})
+2025-08-12 10:17:43,981 - DEBUG - openai._base_client - _base_client:1024 - request_id: 0217549650639950c6bbe1681ccb3bc505384f293d30c2fd6aebb
+2025-08-12 10:17:43,981 - DEBUG - openai._base_client - _base_client:1029 - Encountered httpx.HTTPStatusError
+Traceback (most recent call last):
+  File "/Users/zhaoxuefeng/GitHub/loverooma/.venv/lib/python3.10/site-packages/openai/_base_client.py", line 1027, in request
+    response.raise_for_status()
+  File "/Users/zhaoxuefeng/GitHub/loverooma/.venv/lib/python3.10/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '403 Forbidden' for url 'https://ark.cn-beijing.volces.com/api/v3/responses'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
+2025-08-12 10:17:43,981 - DEBUG - openai._base_client - _base_client:782 - Not retrying
+2025-08-12 10:17:43,981 - DEBUG - openai._base_client - _base_client:1046 - Re-raising status error
+2025-08-12 10:17:43,982 - ERROR - root - server:184 - An unexpected error occurred during desensitization: Error code: 403 - {'error': {'code': 'AccessDenied', 'message': 'The request failed because you do not have access to the requested resource. `responses_api` Request id: 0217549650639950c6bbe1681ccb3bc505384f293d30c2fd6aebb', 'param': '', 'type': 'Forbidden'}}
+Traceback (most recent call last):
+  File "/Users/zhaoxuefeng/GitHub/loverooma/src/loverooma/server.py", line 163, in desensitization_endpoint
+    result = de.desensitization(text=item.text)
+  File "/Users/zhaoxuefeng/GitHub/loverooma/src/loverooma/core.py", line 116, in desensitization
+    des_result = self._prompt_chat(desensitization_prompt.format(text = text))
+  File "/Users/zhaoxuefeng/GitHub/loverooma/src/loverooma/core.py", line 97, in _prompt_chat
+    response = self.client.responses.create(
+  File "/Users/zhaoxuefeng/GitHub/loverooma/.venv/lib/python3.10/site-packages/openai/resources/responses/responses.py", line 795, in create
+    return self._post(
+  File "/Users/zhaoxuefeng/GitHub/loverooma/.venv/lib/python3.10/site-packages/openai/_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+  File "/Users/zhaoxuefeng/GitHub/loverooma/.venv/lib/python3.10/site-packages/openai/_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.PermissionDeniedError: Error code: 403 - {'error': {'code': 'AccessDenied', 'message': 'The request failed because you do not have access to the requested resource. `responses_api` Request id: 0217549650639950c6bbe1681ccb3bc505384f293d30c2fd6aebb', 'param': '', 'type': 'Forbidden'}}
+2025-08-12 13:50:24,037 - INFO - root - core:47 - reload
+2025-08-12 13:50:24,205 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='localhost' port=6333 local_address=None timeout=5.0 socket_options=None
+2025-08-12 13:50:24,207 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x12d520a00>
+2025-08-12 13:50:24,207 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'GET']>
+2025-08-12 13:50:24,208 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-12 13:50:24,208 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'GET']>
+2025-08-12 13:50:24,208 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-12 13:50:24,208 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'GET']>
+2025-08-12 13:50:24,224 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'transfer-encoding', b'chunked'), (b'vary', b'accept-encoding, Origin, Access-Control-Request-Method, Access-Control-Request-Headers'), (b'content-type', b'application/json'), (b'content-encoding', b'gzip'), (b'date', b'Tue, 12 Aug 2025 05:50:23 GMT')])
+2025-08-12 13:50:24,224 - INFO - httpx - _client:1025 - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 13:50:24,225 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'GET']>
+2025-08-12 13:50:24,225 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-12 13:50:24,226 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-12 13:50:24,226 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-12 13:50:24,226 - DEBUG - httpcore.connection - _trace:47 - close.started
+2025-08-12 13:50:24,226 - DEBUG - httpcore.connection - _trace:47 - close.complete
+2025-08-12 13:50:24,226 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='localhost' port=6333 local_address=None timeout=5.0 socket_options=None
+2025-08-12 13:50:24,227 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x12d5213c0>
+2025-08-12 13:50:24,227 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'GET']>
+2025-08-12 13:50:24,227 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-12 13:50:24,228 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'GET']>
+2025-08-12 13:50:24,228 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-12 13:50:24,228 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'GET']>
+2025-08-12 13:50:24,230 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'transfer-encoding', b'chunked'), (b'content-type', b'application/json'), (b'content-encoding', b'gzip'), (b'vary', b'accept-encoding, Origin, Access-Control-Request-Method, Access-Control-Request-Headers'), (b'date', b'Tue, 12 Aug 2025 05:50:23 GMT')])
+2025-08-12 13:50:24,230 - INFO - httpx - _client:1025 - HTTP Request: GET http://localhost:6333/collections/loveroom/exists "HTTP/1.1 200 OK"
+2025-08-12 13:50:24,231 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'GET']>
+2025-08-12 13:50:24,231 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-12 13:50:24,231 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-12 13:50:24,231 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-12 13:50:24,231 - DEBUG - httpcore.connection - _trace:47 - close.started
+2025-08-12 13:50:24,231 - DEBUG - httpcore.connection - _trace:47 - close.complete
+2025-08-12 13:50:24,232 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='localhost' port=6333 local_address=None timeout=5.0 socket_options=None
+2025-08-12 13:50:24,234 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x12d521ff0>
+2025-08-12 13:50:24,234 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'GET']>
+2025-08-12 13:50:24,234 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-12 13:50:24,234 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'GET']>
+2025-08-12 13:50:24,235 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-12 13:50:24,235 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'GET']>
+2025-08-12 13:50:24,238 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'transfer-encoding', b'chunked'), (b'content-type', b'application/json'), (b'content-encoding', b'gzip'), (b'vary', b'accept-encoding, Origin, Access-Control-Request-Method, Access-Control-Request-Headers'), (b'date', b'Tue, 12 Aug 2025 05:50:23 GMT')])
+2025-08-12 13:50:24,238 - INFO - httpx - _client:1025 - HTTP Request: GET http://localhost:6333/collections/loveroom "HTTP/1.1 200 OK"
+2025-08-12 13:50:24,239 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'GET']>
+2025-08-12 13:50:24,239 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-12 13:50:24,239 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-12 13:50:24,239 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-12 13:50:24,239 - DEBUG - httpcore.connection - _trace:47 - close.started
+2025-08-12 13:50:24,239 - DEBUG - httpcore.connection - _trace:47 - close.complete
+2025-08-12 13:50:24,532 - DEBUG - root - core:61 - == reload start ==
+2025-08-12 13:50:24,532 - DEBUG - root - core:62 - callback_manager=<llama_index.core.callbacks.base.CallbackManager object at 0x12d2bb700> similarity_cutoff=0.98
+2025-08-12 13:50:24,597 - DEBUG - asyncio - selector_events:54 - Using selector: KqueueSelector
+2025-08-12 13:50:39,904 - INFO - root - core:47 - reload
+2025-08-12 13:50:40,041 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='localhost' port=6333 local_address=None timeout=5.0 socket_options=None
+2025-08-12 13:50:40,043 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x12e594a00>
+2025-08-12 13:50:40,043 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'GET']>
+2025-08-12 13:50:40,044 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-12 13:50:40,044 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'GET']>
+2025-08-12 13:50:40,044 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-12 13:50:40,044 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'GET']>
+2025-08-12 13:50:40,056 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'transfer-encoding', b'chunked'), (b'vary', b'accept-encoding, Origin, Access-Control-Request-Method, Access-Control-Request-Headers'), (b'content-type', b'application/json'), (b'content-encoding', b'gzip'), (b'date', b'Tue, 12 Aug 2025 05:50:39 GMT')])
+2025-08-12 13:50:40,056 - INFO - httpx - _client:1025 - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 13:50:40,057 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'GET']>
+2025-08-12 13:50:40,057 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-12 13:50:40,057 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-12 13:50:40,057 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-12 13:50:40,057 - DEBUG - httpcore.connection - _trace:47 - close.started
+2025-08-12 13:50:40,057 - DEBUG - httpcore.connection - _trace:47 - close.complete
+2025-08-12 13:50:40,058 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='localhost' port=6333 local_address=None timeout=5.0 socket_options=None
+2025-08-12 13:50:40,058 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x12e5953c0>
+2025-08-12 13:50:40,059 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'GET']>
+2025-08-12 13:50:40,059 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-12 13:50:40,059 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'GET']>
+2025-08-12 13:50:40,059 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-12 13:50:40,059 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'GET']>
+2025-08-12 13:50:40,068 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'transfer-encoding', b'chunked'), (b'content-type', b'application/json'), (b'content-encoding', b'gzip'), (b'vary', b'accept-encoding, Origin, Access-Control-Request-Method, Access-Control-Request-Headers'), (b'date', b'Tue, 12 Aug 2025 05:50:39 GMT')])
+2025-08-12 13:50:40,068 - INFO - httpx - _client:1025 - HTTP Request: GET http://localhost:6333/collections/loveroom/exists "HTTP/1.1 200 OK"
+2025-08-12 13:50:40,069 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'GET']>
+2025-08-12 13:50:40,069 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-12 13:50:40,069 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-12 13:50:40,069 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-12 13:50:40,069 - DEBUG - httpcore.connection - _trace:47 - close.started
+2025-08-12 13:50:40,069 - DEBUG - httpcore.connection - _trace:47 - close.complete
+2025-08-12 13:50:40,070 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='localhost' port=6333 local_address=None timeout=5.0 socket_options=None
+2025-08-12 13:50:40,071 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x12e595ff0>
+2025-08-12 13:50:40,071 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'GET']>
+2025-08-12 13:50:40,071 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-12 13:50:40,072 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'GET']>
+2025-08-12 13:50:40,072 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-12 13:50:40,072 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'GET']>
+2025-08-12 13:50:40,075 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'transfer-encoding', b'chunked'), (b'content-type', b'application/json'), (b'content-encoding', b'gzip'), (b'vary', b'accept-encoding, Origin, Access-Control-Request-Method, Access-Control-Request-Headers'), (b'date', b'Tue, 12 Aug 2025 05:50:39 GMT')])
+2025-08-12 13:50:40,075 - INFO - httpx - _client:1025 - HTTP Request: GET http://localhost:6333/collections/loveroom "HTTP/1.1 200 OK"
+2025-08-12 13:50:40,076 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'GET']>
+2025-08-12 13:50:40,076 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-12 13:50:40,076 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-12 13:50:40,076 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-12 13:50:40,076 - DEBUG - httpcore.connection - _trace:47 - close.started
+2025-08-12 13:50:40,076 - DEBUG - httpcore.connection - _trace:47 - close.complete
+2025-08-12 13:50:40,330 - DEBUG - root - core:61 - == reload start ==
+2025-08-12 13:50:40,330 - DEBUG - root - core:62 - callback_manager=<llama_index.core.callbacks.base.CallbackManager object at 0x12e32b700> similarity_cutoff=0.98
+2025-08-12 13:51:06,795 - INFO - root - core:47 - reload
+2025-08-12 13:51:06,933 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='localhost' port=6333 local_address=None timeout=5.0 socket_options=None
+2025-08-12 13:51:06,935 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x130978a00>
+2025-08-12 13:51:06,935 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'GET']>
+2025-08-12 13:51:06,935 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-12 13:51:06,935 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'GET']>
+2025-08-12 13:51:06,935 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-12 13:51:06,935 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'GET']>
+2025-08-12 13:51:06,947 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'transfer-encoding', b'chunked'), (b'vary', b'accept-encoding, Origin, Access-Control-Request-Method, Access-Control-Request-Headers'), (b'content-type', b'application/json'), (b'content-encoding', b'gzip'), (b'date', b'Tue, 12 Aug 2025 05:51:06 GMT')])
+2025-08-12 13:51:06,947 - INFO - httpx - _client:1025 - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-12 13:51:06,948 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'GET']>
+2025-08-12 13:51:06,948 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-12 13:51:06,948 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-12 13:51:06,948 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-12 13:51:06,948 - DEBUG - httpcore.connection - _trace:47 - close.started
+2025-08-12 13:51:06,948 - DEBUG - httpcore.connection - _trace:47 - close.complete
+2025-08-12 13:51:06,949 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='localhost' port=6333 local_address=None timeout=5.0 socket_options=None
+2025-08-12 13:51:06,950 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1309793c0>
+2025-08-12 13:51:06,950 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'GET']>
+2025-08-12 13:51:06,950 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-12 13:51:06,950 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'GET']>
+2025-08-12 13:51:06,950 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-12 13:51:06,950 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'GET']>
+2025-08-12 13:51:06,957 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'transfer-encoding', b'chunked'), (b'content-type', b'application/json'), (b'content-encoding', b'gzip'), (b'vary', b'accept-encoding, Origin, Access-Control-Request-Method, Access-Control-Request-Headers'), (b'date', b'Tue, 12 Aug 2025 05:51:06 GMT')])
+2025-08-12 13:51:06,958 - INFO - httpx - _client:1025 - HTTP Request: GET http://localhost:6333/collections/loveroom/exists "HTTP/1.1 200 OK"
+2025-08-12 13:51:06,958 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'GET']>
+2025-08-12 13:51:06,958 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-12 13:51:06,958 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-12 13:51:06,958 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-12 13:51:06,958 - DEBUG - httpcore.connection - _trace:47 - close.started
+2025-08-12 13:51:06,958 - DEBUG - httpcore.connection - _trace:47 - close.complete
+2025-08-12 13:51:06,959 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='localhost' port=6333 local_address=None timeout=5.0 socket_options=None
+2025-08-12 13:51:06,961 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x130979ff0>
+2025-08-12 13:51:06,961 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'GET']>
+2025-08-12 13:51:06,961 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-12 13:51:06,961 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'GET']>
+2025-08-12 13:51:06,961 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-12 13:51:06,961 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'GET']>
+2025-08-12 13:51:06,964 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'transfer-encoding', b'chunked'), (b'content-type', b'application/json'), (b'content-encoding', b'gzip'), (b'vary', b'accept-encoding, Origin, Access-Control-Request-Method, Access-Control-Request-Headers'), (b'date', b'Tue, 12 Aug 2025 05:51:06 GMT')])
+2025-08-12 13:51:06,965 - INFO - httpx - _client:1025 - HTTP Request: GET http://localhost:6333/collections/loveroom "HTTP/1.1 200 OK"
+2025-08-12 13:51:06,965 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'GET']>
+2025-08-12 13:51:06,965 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-12 13:51:06,965 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-12 13:51:06,965 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-12 13:51:06,965 - DEBUG - httpcore.connection - _trace:47 - close.started
+2025-08-12 13:51:06,965 - DEBUG - httpcore.connection - _trace:47 - close.complete
+2025-08-12 13:51:07,232 - DEBUG - root - core:61 - == reload start ==
+2025-08-12 13:51:07,232 - DEBUG - root - core:62 - callback_manager=<llama_index.core.callbacks.base.CallbackManager object at 0x12c647700> similarity_cutoff=0.98
+2025-08-12 13:51:07,292 - DEBUG - asyncio - selector_events:54 - Using selector: KqueueSelector
+2025-08-12 13:51:13,050 - INFO - root - server:162 - Received text for desensitization: '你好, 张仲景...'
+2025-08-12 13:51:13,050 - INFO - root - core:121 - 0
+2025-08-12 13:51:13,239 - DEBUG - openai._base_client - _base_client:482 - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-c77cd91a-7623-4acf-b2f2-6e1d5acd362b', 'json_data': {'messages': [{'role': 'system', 'content': [{'type': 'text', 'text': '校验 你好, 张仲景 所有的名字用化名代替,如(小美 小张)'}]}], 'model': 'doubao-seed-1-6-250615'}}
+2025-08-12 13:51:13,297 - DEBUG - openai._base_client - _base_client:978 - Sending HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions
+2025-08-12 13:51:13,298 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='ark.cn-beijing.volces.com' port=443 local_address=None timeout=5.0 socket_options=None
+2025-08-12 13:51:13,338 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x130dc0280>
+2025-08-12 13:51:13,338 - DEBUG - httpcore.connection - _trace:47 - start_tls.started ssl_context=<ssl.SSLContext object at 0x1308f6cc0> server_hostname='ark.cn-beijing.volces.com' timeout=5.0
+2025-08-12 13:51:13,365 - DEBUG - httpcore.connection - _trace:47 - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x130dc00d0>
+2025-08-12 13:51:13,368 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'POST']>
+2025-08-12 13:51:13,369 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-12 13:51:13,369 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'POST']>
+2025-08-12 13:51:13,369 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-12 13:51:13,369 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'POST']>
+2025-08-12 13:51:16,812 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'server', b'istio-envoy'), (b'date', b'Tue, 12 Aug 2025 05:51:16 GMT'), (b'content-type', b'application/json; charset=utf-8'), (b'content-length', b'1013'), (b'x-client-request-id', b'unknown-20250812135113-awcJqUQK'), (b'x-envoy-upstream-service-time', b'3365'), (b'x-request-id', b'021754977873550ccff599f71eb69b2d5900bfa9383b23d555bf9')])
+2025-08-12 13:51:16,815 - INFO - httpx - _client:1025 - HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 13:51:16,816 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'POST']>
+2025-08-12 13:51:16,817 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-12 13:51:16,817 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-12 13:51:16,817 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-12 13:51:16,818 - DEBUG - openai._base_client - _base_client:1016 - HTTP Response: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions "200 OK" Headers({'server': 'istio-envoy', 'date': 'Tue, 12 Aug 2025 05:51:16 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '1013', 'x-client-request-id': 'unknown-20250812135113-awcJqUQK', 'x-envoy-upstream-service-time': '3365', 'x-request-id': '021754977873550ccff599f71eb69b2d5900bfa9383b23d555bf9'})
+2025-08-12 13:51:16,819 - DEBUG - openai._base_client - _base_client:1024 - request_id: 021754977873550ccff599f71eb69b2d5900bfa9383b23d555bf9
+2025-08-12 13:51:16,839 - DEBUG - openai._base_client - _base_client:482 - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-ba8d3e9b-9029-4ca0-8e42-2a1f23b8f229', 'json_data': {'messages': [{'role': 'system', 'content': [{'type': 'text', 'text': '校验张仲景是我国古代著名的医学家，他的贡献对中医药学有着深远影响，我们应当尊重历史人物，使用其真实姓名，而不是进行不当的化名替代。让我们共同尊重和铭记历史文化中的重要人物及其贡献。 中是否有真实的人名,来确认是否通过了脱敏, 如果通过,就返回true 如果没通过就返回false'}]}], 'model': 'doubao-seed-1-6-250615'}}
+2025-08-12 13:51:16,840 - DEBUG - openai._base_client - _base_client:978 - Sending HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions
+2025-08-12 13:51:16,840 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'POST']>
+2025-08-12 13:51:16,841 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-12 13:51:16,841 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'POST']>
+2025-08-12 13:51:16,841 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-12 13:51:16,841 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'POST']>
+2025-08-12 13:51:21,956 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'server', b'istio-envoy'), (b'date', b'Tue, 12 Aug 2025 05:51:21 GMT'), (b'content-type', b'application/json; charset=utf-8'), (b'content-length', b'1200'), (b'x-client-request-id', b'unknown-20250812135117-WVpRJPbJ'), (b'x-envoy-upstream-service-time', b'5092'), (b'x-request-id', b'021754977877027ccff599f71eb69b2d5900bfa9383b23d42adcd')])
+2025-08-12 13:51:21,957 - INFO - httpx - _client:1025 - HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 13:51:21,958 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'POST']>
+2025-08-12 13:51:21,958 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-12 13:51:21,958 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-12 13:51:21,959 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-12 13:51:21,972 - DEBUG - openai._base_client - _base_client:1016 - HTTP Response: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions "200 OK" Headers({'server': 'istio-envoy', 'date': 'Tue, 12 Aug 2025 05:51:21 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '1200', 'x-client-request-id': 'unknown-20250812135117-WVpRJPbJ', 'x-envoy-upstream-service-time': '5092', 'x-request-id': '021754977877027ccff599f71eb69b2d5900bfa9383b23d42adcd'})
+2025-08-12 13:51:21,972 - DEBUG - openai._base_client - _base_client:1024 - request_id: 021754977877027ccff599f71eb69b2d5900bfa9383b23d42adcd
+2025-08-12 13:51:21,973 - INFO - root - core:121 - 1
+2025-08-12 13:51:21,974 - DEBUG - openai._base_client - _base_client:482 - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-1cd6edde-8d5c-4792-a4d1-a4bfe679ed19', 'json_data': {'messages': [{'role': 'system', 'content': [{'type': 'text', 'text': '校验 你好, 张仲景 所有的名字用化名代替,如(小美 小张)'}]}], 'model': 'doubao-seed-1-6-250615'}}
+2025-08-12 13:51:21,975 - DEBUG - openai._base_client - _base_client:978 - Sending HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions
+2025-08-12 13:51:21,975 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'POST']>
+2025-08-12 13:51:21,975 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-12 13:51:21,976 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'POST']>
+2025-08-12 13:51:21,976 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-12 13:51:21,976 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'POST']>
+2025-08-12 13:51:29,402 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'server', b'istio-envoy'), (b'date', b'Tue, 12 Aug 2025 05:51:29 GMT'), (b'content-type', b'application/json; charset=utf-8'), (b'content-length', b'1641'), (b'x-client-request-id', b'unknown-20250812135122-jXQpsjbf'), (b'x-envoy-upstream-service-time', b'6757'), (b'x-request-id', b'021754977882798ccff599f71eb69b2d5900bfa9383b23db19c8a')])
+2025-08-12 13:51:29,405 - INFO - httpx - _client:1025 - HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 13:51:29,406 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'POST']>
+2025-08-12 13:51:29,406 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-12 13:51:29,406 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-12 13:51:29,406 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-12 13:51:29,407 - DEBUG - openai._base_client - _base_client:1016 - HTTP Response: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions "200 OK" Headers({'server': 'istio-envoy', 'date': 'Tue, 12 Aug 2025 05:51:29 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '1641', 'x-client-request-id': 'unknown-20250812135122-jXQpsjbf', 'x-envoy-upstream-service-time': '6757', 'x-request-id': '021754977882798ccff599f71eb69b2d5900bfa9383b23db19c8a'})
+2025-08-12 13:51:29,407 - DEBUG - openai._base_client - _base_client:1024 - request_id: 021754977882798ccff599f71eb69b2d5900bfa9383b23db19c8a
+2025-08-12 13:51:29,411 - DEBUG - openai._base_client - _base_client:482 - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-709bc4c8-7bf9-4eae-8f18-3ec281523648', 'json_data': {'messages': [{'role': 'system', 'content': [{'type': 'text', 'text': '校验张仲景是中国古代著名的医学家，是历史文化名人，其姓名承载着重要的历史和文化意义，不应随意用化名代替。我们应当尊重历史人物及其真实身份，铭记他们为人类文明所做出的贡献。如果你有其他合理的、不涉及对历史人物不恰当处理的需求，我会很乐意帮助你。 中是否有真实的人名,来确认是否通过了脱敏, 如果通过,就返回true 如果没通过就返回false'}]}], 'model': 'doubao-seed-1-6-250615'}}
+2025-08-12 13:51:29,411 - DEBUG - openai._base_client - _base_client:978 - Sending HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions
+2025-08-12 13:51:29,412 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'POST']>
+2025-08-12 13:51:29,412 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-12 13:51:29,412 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'POST']>
+2025-08-12 13:51:29,412 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-12 13:51:29,413 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'POST']>
+2025-08-12 13:51:33,459 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'server', b'istio-envoy'), (b'date', b'Tue, 12 Aug 2025 05:51:32 GMT'), (b'content-type', b'application/json; charset=utf-8'), (b'content-length', b'1351'), (b'x-client-request-id', b'unknown-20250812135129-aFRWLtCY'), (b'x-envoy-upstream-service-time', b'3991'), (b'x-request-id', b'021754977889593ccff599f71eb69b2d5900bfa9383b23ded43a0')])
+2025-08-12 13:51:33,463 - INFO - httpx - _client:1025 - HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 13:51:33,463 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'POST']>
+2025-08-12 13:51:33,463 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-12 13:51:33,464 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-12 13:51:33,464 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-12 13:51:33,464 - DEBUG - openai._base_client - _base_client:1016 - HTTP Response: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions "200 OK" Headers({'server': 'istio-envoy', 'date': 'Tue, 12 Aug 2025 05:51:32 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '1351', 'x-client-request-id': 'unknown-20250812135129-aFRWLtCY', 'x-envoy-upstream-service-time': '3991', 'x-request-id': '021754977889593ccff599f71eb69b2d5900bfa9383b23ded43a0'})
+2025-08-12 13:51:33,464 - DEBUG - openai._base_client - _base_client:1024 - request_id: 021754977889593ccff599f71eb69b2d5900bfa9383b23ded43a0
+2025-08-12 13:51:33,466 - INFO - root - core:121 - 2
+2025-08-12 13:51:33,467 - DEBUG - openai._base_client - _base_client:482 - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-76c6d77a-348d-41b8-b966-94c51502336e', 'json_data': {'messages': [{'role': 'system', 'content': [{'type': 'text', 'text': '校验 你好, 张仲景 所有的名字用化名代替,如(小美 小张)'}]}], 'model': 'doubao-seed-1-6-250615'}}
+2025-08-12 13:51:33,467 - DEBUG - openai._base_client - _base_client:978 - Sending HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions
+2025-08-12 13:51:33,468 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'POST']>
+2025-08-12 13:51:33,468 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-12 13:51:33,468 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'POST']>
+2025-08-12 13:51:33,469 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-12 13:51:33,469 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'POST']>
+2025-08-12 13:51:39,279 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'server', b'istio-envoy'), (b'date', b'Tue, 12 Aug 2025 05:51:38 GMT'), (b'content-type', b'application/json; charset=utf-8'), (b'content-length', b'1401'), (b'x-client-request-id', b'unknown-20250812135133-eGmTCWBj'), (b'x-envoy-upstream-service-time', b'5710'), (b'x-request-id', b'021754977893650ccff599f71eb69b2d5900bfa9383b23d59eb12')])
+2025-08-12 13:51:39,281 - INFO - httpx - _client:1025 - HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 13:51:39,282 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'POST']>
+2025-08-12 13:51:39,283 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-12 13:51:39,283 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-12 13:51:39,284 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-12 13:51:39,284 - DEBUG - openai._base_client - _base_client:1016 - HTTP Response: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions "200 OK" Headers({'server': 'istio-envoy', 'date': 'Tue, 12 Aug 2025 05:51:38 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '1401', 'x-client-request-id': 'unknown-20250812135133-eGmTCWBj', 'x-envoy-upstream-service-time': '5710', 'x-request-id': '021754977893650ccff599f71eb69b2d5900bfa9383b23d59eb12'})
+2025-08-12 13:51:39,284 - DEBUG - openai._base_client - _base_client:1024 - request_id: 021754977893650ccff599f71eb69b2d5900bfa9383b23d59eb12
+2025-08-12 13:51:39,288 - DEBUG - openai._base_client - _base_client:482 - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-a598ac59-5be6-48c2-a20a-2c505f97f7dc', 'json_data': {'messages': [{'role': 'system', 'content': [{'type': 'text', 'text': '校验你好, 小张 中是否有真实的人名,来确认是否通过了脱敏, 如果通过,就返回true 如果没通过就返回false'}]}], 'model': 'doubao-seed-1-6-250615'}}
+2025-08-12 13:51:39,289 - DEBUG - openai._base_client - _base_client:978 - Sending HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions
+2025-08-12 13:51:39,290 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'POST']>
+2025-08-12 13:51:39,291 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-12 13:51:39,291 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'POST']>
+2025-08-12 13:51:39,291 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-12 13:51:39,292 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'POST']>
+2025-08-12 13:51:43,848 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'server', b'istio-envoy'), (b'date', b'Tue, 12 Aug 2025 05:51:43 GMT'), (b'content-type', b'application/json; charset=utf-8'), (b'content-length', b'1101'), (b'x-client-request-id', b'unknown-20250812135139-uzKejthY'), (b'x-envoy-upstream-service-time', b'4520'), (b'x-request-id', b'021754977899493ccff599f71eb69b2d5900bfa9383b23d615b08')])
+2025-08-12 13:51:43,859 - INFO - httpx - _client:1025 - HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 13:51:43,862 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'POST']>
+2025-08-12 13:51:43,863 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-12 13:51:43,864 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-12 13:51:43,864 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-12 13:51:43,865 - DEBUG - openai._base_client - _base_client:1016 - HTTP Response: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions "200 OK" Headers({'server': 'istio-envoy', 'date': 'Tue, 12 Aug 2025 05:51:43 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '1101', 'x-client-request-id': 'unknown-20250812135139-uzKejthY', 'x-envoy-upstream-service-time': '4520', 'x-request-id': '021754977899493ccff599f71eb69b2d5900bfa9383b23d615b08'})
+2025-08-12 13:51:43,866 - DEBUG - openai._base_client - _base_client:1024 - request_id: 021754977899493ccff599f71eb69b2d5900bfa9383b23d615b08
+2025-08-12 13:51:43,876 - INFO - root - server:175 - Text successfully desensitized. Original length: 7, Desensitized length: 6

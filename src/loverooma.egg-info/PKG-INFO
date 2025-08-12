@@ -4,4 +4,10 @@ Version: 0.1.1
 Summary: Add your description here
 Requires-Python: >=3.10
 Description-Content-Type: text/markdown
+Requires-Dist: fastapi>=0.116.1
+Requires-Dist: llama-index>=0.13.1
+Requires-Dist: llama-index-vector-stores-qdrant>=0.7.1
+Requires-Dist: pyyaml>=6.0.2
+Requires-Dist: qdrant-client>=1.15.1
 Requires-Dist: toml==0.10.2
+Requires-Dist: volcengine-python-sdk>=4.0.10

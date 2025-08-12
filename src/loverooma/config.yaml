@@ -5,8 +5,8 @@ similarity_cutoff: 0.98
 collection_name: "loveroom"
 api_key: "ac89ee8d-ba2a-4e31-bad7-021cf411c673"
 model_name: "doubao-embedding-text-240715"
-chat_model_name: "doubao-seed-1-6-250615"
 
-Desensitization_prompt: "校验 {text} 所有的名字用化名代替(小美 小张)"
-Evaluation_prompt: "校验{des_result}"
+chat_model_name: "doubao-seed-1-6-250615"
+Desensitization_prompt: "校验 {text} 所有的名字用化名代替,如(小美 小张)"
+Evaluation_prompt: "校验{des_result} 中是否有真实的人名,来确认是否通过了脱敏, 如果通过,就返回true 如果没通过就返回false"
 roll_time: 3
