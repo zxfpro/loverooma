@@ -58,14 +58,6 @@ async def reload_endpoint():
         )
 
 
-
-
-# @app.get('/update')
-# def update(text:str,id:str)->str:
-#     ep.update(text = text,id = id)
-    
-#     return "success"
-
 class UpdateItem(BaseModel):
     text: str = Field(..., min_length=1, max_length=2000, description="要更新的文本内容。")
     id: str = Field(..., min_length=1, max_length=100, description="与文本关联的唯一ID。")
@@ -98,13 +90,6 @@ def update_endpoint(item: UpdateItem):
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Failed to update embedding for ID '{item.id}': {e}"
         )
-
-
-# @app.get('/search')
-# def search(query:str)->str:
-#     result = ep.search(query=query)
-
-#     return result
 
 
 class QueryItem(BaseModel):
@@ -198,10 +183,11 @@ def update_with_desensitization(item: UpdateItem): # 使用Pydantic模型进行�
     对输入的文本进行脱敏操作。
     - **text**: 需要脱敏的原始文本。
     """
-    #TODO 整合一个新的接口, 先脱敏后上传
+    
     try:
         logger.info(f"Received text for desensitization and update: '{item.text[:100]}...' with ID: '{item.id}'")
         desensitized_text = de.desensitization(text=item.text)
+        #TODO 处理 desensitized_text 返回"脱敏失败" 关键字时, 对应的处理, 
 
         if desensitized_text == 'error':
             logger.warning(f"Desensitization failed for text: '{item.text[:100]}...'. Returned 'error'.")
