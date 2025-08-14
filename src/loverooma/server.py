@@ -54,6 +54,8 @@ async def reload_endpoint(Desensitization_prompt: str = Header(None), Evaluation
     """
     重新加载Embedding池，通常用于清除缓存或重新从源加载数据。
     """
+    logger.info(Desensitization_prompt)
+    logger.info(Evaluation_prompt)
     try:
         if Desensitization_prompt or Evaluation_prompt:
             config = load_config()
