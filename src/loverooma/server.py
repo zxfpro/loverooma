@@ -3,6 +3,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 from loverooma.core import EmbeddingPool,Desensitization
 from loverooma.log import Log
+import importlib.resources
+import yaml
+
 
 logger = Log.logger
 
@@ -47,11 +50,20 @@ def load_config():
     description="清空并重新初始化Embedding池。注意：这可能会导致短暂的服务中断或数据丢失。",
     response_description="表示操作是否成功。"
 )
-async def reload_endpoint():
+async def reload_endpoint(Desensitization_prompt: str = Header(None), Evaluation_prompt: str = Header(None)):
     """
     重新加载Embedding池，通常用于清除缓存或重新从源加载数据。
     """
     try:
+        if Desensitization_prompt or Evaluation_prompt:
+            config = load_config()
+            if Desensitization_prompt:
+                config['Desensitization_prompt'] = Desensitization_prompt
+            if Evaluation_prompt:
+                config['Evaluation_prompt'] = Evaluation_prompt
+            with importlib.resources.path('loverooma', 'config.yaml') as config_path:
+                with open(config_path, 'w') as f:
+                    yaml.safe_dump(config, f)
         ep.reload()
         return {"status": "success", "message": "Embedding pool reloaded successfully."}
     except Exception as e:
