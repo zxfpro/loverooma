@@ -1342,3 +1342,201 @@ openai.PermissionDeniedError: Error code: 403 - {'error': {'code': 'AccessDenied
 2025-08-12 13:51:43,865 - DEBUG - openai._base_client - _base_client:1016 - HTTP Response: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions "200 OK" Headers({'server': 'istio-envoy', 'date': 'Tue, 12 Aug 2025 05:51:43 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '1101', 'x-client-request-id': 'unknown-20250812135139-uzKejthY', 'x-envoy-upstream-service-time': '4520', 'x-request-id': '021754977899493ccff599f71eb69b2d5900bfa9383b23d615b08'})
 2025-08-12 13:51:43,866 - DEBUG - openai._base_client - _base_client:1024 - request_id: 021754977899493ccff599f71eb69b2d5900bfa9383b23d615b08
 2025-08-12 13:51:43,876 - INFO - root - server:175 - Text successfully desensitized. Original length: 7, Desensitized length: 6
+2025-08-14 11:13:29,455 - INFO - root - core:47 - reload
+2025-08-14 11:13:29,617 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='localhost' port=6333 local_address=None timeout=5.0 socket_options=None
+2025-08-14 11:13:29,619 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x12c9f8940>
+2025-08-14 11:13:29,619 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'GET']>
+2025-08-14 11:13:29,620 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-14 11:13:29,620 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'GET']>
+2025-08-14 11:13:29,620 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-14 11:13:29,620 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'GET']>
+2025-08-14 11:13:29,635 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'transfer-encoding', b'chunked'), (b'content-type', b'application/json'), (b'content-encoding', b'gzip'), (b'vary', b'accept-encoding, Origin, Access-Control-Request-Method, Access-Control-Request-Headers'), (b'date', b'Thu, 14 Aug 2025 03:13:29 GMT')])
+2025-08-14 11:13:29,636 - INFO - httpx - _client:1025 - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-08-14 11:13:29,637 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'GET']>
+2025-08-14 11:13:29,637 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-14 11:13:29,637 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-14 11:13:29,637 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-14 11:13:29,637 - DEBUG - httpcore.connection - _trace:47 - close.started
+2025-08-14 11:13:29,638 - DEBUG - httpcore.connection - _trace:47 - close.complete
+2025-08-14 11:13:29,638 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='localhost' port=6333 local_address=None timeout=5.0 socket_options=None
+2025-08-14 11:13:29,639 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x12c9f9300>
+2025-08-14 11:13:29,639 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'GET']>
+2025-08-14 11:13:29,639 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-14 11:13:29,639 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'GET']>
+2025-08-14 11:13:29,640 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-14 11:13:29,640 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'GET']>
+2025-08-14 11:13:29,642 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'transfer-encoding', b'chunked'), (b'vary', b'accept-encoding, Origin, Access-Control-Request-Method, Access-Control-Request-Headers'), (b'content-encoding', b'gzip'), (b'content-type', b'application/json'), (b'date', b'Thu, 14 Aug 2025 03:13:29 GMT')])
+2025-08-14 11:13:29,642 - INFO - httpx - _client:1025 - HTTP Request: GET http://localhost:6333/collections/loveroom/exists "HTTP/1.1 200 OK"
+2025-08-14 11:13:29,643 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'GET']>
+2025-08-14 11:13:29,643 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-14 11:13:29,643 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-14 11:13:29,643 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-14 11:13:29,643 - DEBUG - httpcore.connection - _trace:47 - close.started
+2025-08-14 11:13:29,643 - DEBUG - httpcore.connection - _trace:47 - close.complete
+2025-08-14 11:13:29,644 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='localhost' port=6333 local_address=None timeout=5.0 socket_options=None
+2025-08-14 11:13:29,645 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x12c9f9f30>
+2025-08-14 11:13:29,645 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'GET']>
+2025-08-14 11:13:29,645 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-14 11:13:29,645 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'GET']>
+2025-08-14 11:13:29,646 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-14 11:13:29,646 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'GET']>
+2025-08-14 11:13:29,649 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'transfer-encoding', b'chunked'), (b'vary', b'accept-encoding, Origin, Access-Control-Request-Method, Access-Control-Request-Headers'), (b'content-encoding', b'gzip'), (b'content-type', b'application/json'), (b'date', b'Thu, 14 Aug 2025 03:13:29 GMT')])
+2025-08-14 11:13:29,649 - INFO - httpx - _client:1025 - HTTP Request: GET http://localhost:6333/collections/loveroom "HTTP/1.1 200 OK"
+2025-08-14 11:13:29,649 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'GET']>
+2025-08-14 11:13:29,649 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-14 11:13:29,649 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-14 11:13:29,649 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-14 11:13:29,650 - DEBUG - httpcore.connection - _trace:47 - close.started
+2025-08-14 11:13:29,650 - DEBUG - httpcore.connection - _trace:47 - close.complete
+2025-08-14 11:13:30,898 - DEBUG - root - core:61 - == reload start ==
+2025-08-14 11:13:30,898 - DEBUG - root - core:62 - callback_manager=<llama_index.core.callbacks.base.CallbackManager object at 0x12c793640> similarity_cutoff=0.98
+2025-08-14 11:13:30,962 - DEBUG - asyncio - selector_events:54 - Using selector: KqueueSelector
+2025-08-14 11:15:00,053 - INFO - root - server:203 - Received text for desensitization and update: '你好, 张仲景...' with ID: '3jf2'
+2025-08-14 11:15:00,055 - INFO - root - core:121 - 0
+2025-08-14 11:15:00,284 - DEBUG - openai._base_client - _base_client:482 - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-578faf09-1777-4c52-a8bb-4c37148db0ee', 'json_data': {'messages': [{'role': 'system', 'content': [{'type': 'text', 'text': '校验 你好, 张仲景 所有的名字用化名代替,如(小美 小张)'}]}], 'model': 'doubao-seed-1-6-250615'}}
+2025-08-14 11:15:00,336 - DEBUG - openai._base_client - _base_client:978 - Sending HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions
+2025-08-14 11:15:00,336 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='ark.cn-beijing.volces.com' port=443 local_address=None timeout=5.0 socket_options=None
+2025-08-14 11:15:00,342 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1316f4880>
+2025-08-14 11:15:00,342 - DEBUG - httpcore.connection - _trace:47 - start_tls.started ssl_context=<ssl.SSLContext object at 0x12c972cc0> server_hostname='ark.cn-beijing.volces.com' timeout=5.0
+2025-08-14 11:15:00,410 - DEBUG - httpcore.connection - _trace:47 - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1316f4520>
+2025-08-14 11:15:00,411 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'POST']>
+2025-08-14 11:15:00,411 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-14 11:15:00,411 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'POST']>
+2025-08-14 11:15:00,412 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-14 11:15:00,412 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'POST']>
+2025-08-14 11:15:09,935 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'server', b'istio-envoy'), (b'date', b'Thu, 14 Aug 2025 03:15:09 GMT'), (b'content-type', b'application/json; charset=utf-8'), (b'content-length', b'1843'), (b'x-client-request-id', b'unknown-20250814111459-DCkCGJWc'), (b'x-envoy-upstream-service-time', b'9507'), (b'x-request-id', b'021755141299731285b6dcb155b60affdba1935ab3747e27b326f')])
+2025-08-14 11:15:09,936 - INFO - httpx - _client:1025 - HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions "HTTP/1.1 200 OK"
+2025-08-14 11:15:09,936 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'POST']>
+2025-08-14 11:15:09,936 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-14 11:15:09,937 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-14 11:15:09,937 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-14 11:15:09,937 - DEBUG - openai._base_client - _base_client:1016 - HTTP Response: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions "200 OK" Headers({'server': 'istio-envoy', 'date': 'Thu, 14 Aug 2025 03:15:09 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '1843', 'x-client-request-id': 'unknown-20250814111459-DCkCGJWc', 'x-envoy-upstream-service-time': '9507', 'x-request-id': '021755141299731285b6dcb155b60affdba1935ab3747e27b326f'})
+2025-08-14 11:15:09,937 - DEBUG - openai._base_client - _base_client:1024 - request_id: 021755141299731285b6dcb155b60affdba1935ab3747e27b326f
+2025-08-14 11:15:09,949 - DEBUG - openai._base_client - _base_client:482 - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-0bb47a2b-261e-440f-80e6-1f099532f791', 'json_data': {'messages': [{'role': 'system', 'content': [{'type': 'text', 'text': '校验“张仲景”是我国东汉末年著名的医学家，被后人尊称为“医圣”，其名字承载着重要的历史文化意义，不应随意使用化名替代。我们应当尊重历史人物及其贡献，使用正确的历史名称来铭记和传承他们的文化遗产。如果你有其他合理的文本校验需求，我会尽力为你提供帮助。 中是否有真实的人名,来确认是否通过了脱敏, 如果通过,就返回true 如果没通过就返回false'}]}], 'model': 'doubao-seed-1-6-250615'}}
+2025-08-14 11:15:09,949 - DEBUG - openai._base_client - _base_client:978 - Sending HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions
+2025-08-14 11:15:09,950 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'POST']>
+2025-08-14 11:15:09,950 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-14 11:15:09,950 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'POST']>
+2025-08-14 11:15:09,951 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-14 11:15:09,951 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'POST']>
+2025-08-14 11:15:14,766 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'server', b'istio-envoy'), (b'date', b'Thu, 14 Aug 2025 03:15:13 GMT'), (b'content-type', b'application/json; charset=utf-8'), (b'content-length', b'1233'), (b'x-client-request-id', b'unknown-20250814111509-vHvNKmsv'), (b'x-envoy-upstream-service-time', b'4798'), (b'x-request-id', b'021755141309270285b6dcb155b60affdba1935ab3747e2824d69')])
+2025-08-14 11:15:14,766 - INFO - httpx - _client:1025 - HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions "HTTP/1.1 200 OK"
+2025-08-14 11:15:14,766 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'POST']>
+2025-08-14 11:15:14,767 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-14 11:15:14,767 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-14 11:15:14,767 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-14 11:15:14,767 - DEBUG - openai._base_client - _base_client:1016 - HTTP Response: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions "200 OK" Headers({'server': 'istio-envoy', 'date': 'Thu, 14 Aug 2025 03:15:13 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '1233', 'x-client-request-id': 'unknown-20250814111509-vHvNKmsv', 'x-envoy-upstream-service-time': '4798', 'x-request-id': '021755141309270285b6dcb155b60affdba1935ab3747e2824d69'})
+2025-08-14 11:15:14,767 - DEBUG - openai._base_client - _base_client:1024 - request_id: 021755141309270285b6dcb155b60affdba1935ab3747e2824d69
+2025-08-14 11:15:14,768 - INFO - root - core:121 - 1
+2025-08-14 11:15:14,769 - DEBUG - openai._base_client - _base_client:482 - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-074d0fa6-3d7c-4ce3-8d9b-8d483a8612ed', 'json_data': {'messages': [{'role': 'system', 'content': [{'type': 'text', 'text': '校验 你好, 张仲景 所有的名字用化名代替,如(小美 小张)'}]}], 'model': 'doubao-seed-1-6-250615'}}
+2025-08-14 11:15:14,769 - DEBUG - openai._base_client - _base_client:978 - Sending HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions
+2025-08-14 11:15:14,769 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'POST']>
+2025-08-14 11:15:14,770 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-14 11:15:14,770 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'POST']>
+2025-08-14 11:15:14,770 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-14 11:15:14,770 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'POST']>
+2025-08-14 11:15:24,271 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'server', b'istio-envoy'), (b'date', b'Thu, 14 Aug 2025 03:15:23 GMT'), (b'content-type', b'application/json; charset=utf-8'), (b'content-length', b'1939'), (b'x-client-request-id', b'unknown-20250814111514-CfiIRmsy'), (b'x-envoy-upstream-service-time', b'9485'), (b'x-request-id', b'021755141314090285b6dcb155b60affdba1935ab3747e2ad76b4')])
+2025-08-14 11:15:24,271 - INFO - httpx - _client:1025 - HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions "HTTP/1.1 200 OK"
+2025-08-14 11:15:24,271 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'POST']>
+2025-08-14 11:15:24,272 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-14 11:15:24,272 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-14 11:15:24,272 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-14 11:15:24,272 - DEBUG - openai._base_client - _base_client:1016 - HTTP Response: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions "200 OK" Headers({'server': 'istio-envoy', 'date': 'Thu, 14 Aug 2025 03:15:23 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '1939', 'x-client-request-id': 'unknown-20250814111514-CfiIRmsy', 'x-envoy-upstream-service-time': '9485', 'x-request-id': '021755141314090285b6dcb155b60affdba1935ab3747e2ad76b4'})
+2025-08-14 11:15:24,272 - DEBUG - openai._base_client - _base_client:1024 - request_id: 021755141314090285b6dcb155b60affdba1935ab3747e2ad76b4
+2025-08-14 11:15:24,274 - DEBUG - openai._base_client - _base_client:482 - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-e59c1b7e-ea41-4029-9375-6dff4c7c46f8', 'json_data': {'messages': [{'role': 'system', 'content': [{'type': 'text', 'text': '校验张仲景是中国古代著名的医学家，是历史上真实存在且对医学发展有重要贡献的人物，我们应当尊重历史人物，使用其真实姓名，不应随意用化名替代。历史人物的姓名承载着历史文化信息，随意替换可能会导致对历史的误解，我们应保持对历史的敬畏和正确认知。 中是否有真实的人名,来确认是否通过了脱敏, 如果通过,就返回true 如果没通过就返回false'}]}], 'model': 'doubao-seed-1-6-250615'}}
+2025-08-14 11:15:24,274 - DEBUG - openai._base_client - _base_client:978 - Sending HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions
+2025-08-14 11:15:24,274 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'POST']>
+2025-08-14 11:15:24,275 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-14 11:15:24,275 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'POST']>
+2025-08-14 11:15:24,275 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-14 11:15:24,275 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'POST']>
+2025-08-14 11:15:28,151 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'server', b'istio-envoy'), (b'date', b'Thu, 14 Aug 2025 03:15:27 GMT'), (b'content-type', b'application/json; charset=utf-8'), (b'content-length', b'964'), (b'x-client-request-id', b'unknown-20250814111523-FHJZBAKy'), (b'x-envoy-upstream-service-time', b'3856'), (b'x-request-id', b'021755141323595285b6dcb155b60affdba1935ab3747e2a17e68')])
+2025-08-14 11:15:28,153 - INFO - httpx - _client:1025 - HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions "HTTP/1.1 200 OK"
+2025-08-14 11:15:28,153 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'POST']>
+2025-08-14 11:15:28,153 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-14 11:15:28,154 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-14 11:15:28,154 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-14 11:15:28,154 - DEBUG - openai._base_client - _base_client:1016 - HTTP Response: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions "200 OK" Headers({'server': 'istio-envoy', 'date': 'Thu, 14 Aug 2025 03:15:27 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '964', 'x-client-request-id': 'unknown-20250814111523-FHJZBAKy', 'x-envoy-upstream-service-time': '3856', 'x-request-id': '021755141323595285b6dcb155b60affdba1935ab3747e2a17e68'})
+2025-08-14 11:15:28,154 - DEBUG - openai._base_client - _base_client:1024 - request_id: 021755141323595285b6dcb155b60affdba1935ab3747e2a17e68
+2025-08-14 11:15:28,156 - INFO - root - core:121 - 2
+2025-08-14 11:15:28,158 - DEBUG - openai._base_client - _base_client:482 - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-f55275c7-81d9-486a-a335-850b76ba042c', 'json_data': {'messages': [{'role': 'system', 'content': [{'type': 'text', 'text': '校验 你好, 张仲景 所有的名字用化名代替,如(小美 小张)'}]}], 'model': 'doubao-seed-1-6-250615'}}
+2025-08-14 11:15:28,159 - DEBUG - openai._base_client - _base_client:978 - Sending HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions
+2025-08-14 11:15:28,159 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'POST']>
+2025-08-14 11:15:28,160 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-14 11:15:28,160 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'POST']>
+2025-08-14 11:15:28,160 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-14 11:15:28,160 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'POST']>
+2025-08-14 11:15:33,541 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'server', b'istio-envoy'), (b'date', b'Thu, 14 Aug 2025 03:15:32 GMT'), (b'content-type', b'application/json; charset=utf-8'), (b'content-length', b'1082'), (b'x-client-request-id', b'unknown-20250814111527-LDVYqOlM'), (b'x-envoy-upstream-service-time', b'5360'), (b'x-request-id', b'021755141327481285b6dcb155b60affdba1935ab3747e2a780ce')])
+2025-08-14 11:15:33,542 - INFO - httpx - _client:1025 - HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions "HTTP/1.1 200 OK"
+2025-08-14 11:15:33,542 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'POST']>
+2025-08-14 11:15:33,542 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-14 11:15:33,542 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-14 11:15:33,542 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-14 11:15:33,543 - DEBUG - openai._base_client - _base_client:1016 - HTTP Response: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions "200 OK" Headers({'server': 'istio-envoy', 'date': 'Thu, 14 Aug 2025 03:15:32 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '1082', 'x-client-request-id': 'unknown-20250814111527-LDVYqOlM', 'x-envoy-upstream-service-time': '5360', 'x-request-id': '021755141327481285b6dcb155b60affdba1935ab3747e2a780ce'})
+2025-08-14 11:15:33,543 - DEBUG - openai._base_client - _base_client:1024 - request_id: 021755141327481285b6dcb155b60affdba1935ab3747e2a780ce
+2025-08-14 11:15:33,544 - DEBUG - openai._base_client - _base_client:482 - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-876c2a3e-8f21-43fd-9a8e-f71b0ccf8936', 'json_data': {'messages': [{'role': 'system', 'content': [{'type': 'text', 'text': '校验张仲景是我国古代著名的医学家，是历史上真实存在的重要人物，我们应当尊重历史事实，对历史人物使用正确的姓名，而不是随意用化名替代。这种对历史人物的不恰当处理是不合适的，我们要铭记和尊重历史文化。 中是否有真实的人名,来确认是否通过了脱敏, 如果通过,就返回true 如果没通过就返回false'}]}], 'model': 'doubao-seed-1-6-250615'}}
+2025-08-14 11:15:33,545 - DEBUG - openai._base_client - _base_client:978 - Sending HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions
+2025-08-14 11:15:33,545 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'POST']>
+2025-08-14 11:15:33,545 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-14 11:15:33,545 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'POST']>
+2025-08-14 11:15:33,546 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-14 11:15:33,546 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'POST']>
+2025-08-14 11:15:41,004 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'server', b'istio-envoy'), (b'date', b'Thu, 14 Aug 2025 03:15:39 GMT'), (b'content-type', b'application/json; charset=utf-8'), (b'content-length', b'1374'), (b'x-client-request-id', b'unknown-20250814111532-opZeHLal'), (b'x-envoy-upstream-service-time', b'7422'), (b'x-request-id', b'021755141332868285b6dcb155b60affdba1935ab3747e29b0eda')])
+2025-08-14 11:15:41,005 - INFO - httpx - _client:1025 - HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions "HTTP/1.1 200 OK"
+2025-08-14 11:15:41,005 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'POST']>
+2025-08-14 11:15:41,005 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-14 11:15:41,005 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-14 11:15:41,005 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-14 11:15:41,005 - DEBUG - openai._base_client - _base_client:1016 - HTTP Response: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions "200 OK" Headers({'server': 'istio-envoy', 'date': 'Thu, 14 Aug 2025 03:15:39 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '1374', 'x-client-request-id': 'unknown-20250814111532-opZeHLal', 'x-envoy-upstream-service-time': '7422', 'x-request-id': '021755141332868285b6dcb155b60affdba1935ab3747e29b0eda'})
+2025-08-14 11:15:41,006 - DEBUG - openai._base_client - _base_client:1024 - request_id: 021755141332868285b6dcb155b60affdba1935ab3747e29b0eda
+2025-08-14 11:15:41,006 - INFO - root - core:66 - update
+2025-08-14 11:15:41,007 - WARNING - llama_index.core.indices.base - base:365 - update() is now deprecated, please refer to update_ref_doc() to update ingested documents+nodes.Use aupdate_ref_docs() for an asynchronous implementation
+2025-08-14 11:15:41,010 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='localhost' port=6333 local_address=None timeout=5.0 socket_options=None
+2025-08-14 11:15:41,012 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1316f75b0>
+2025-08-14 11:15:41,012 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'POST']>
+2025-08-14 11:15:41,012 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-14 11:15:41,012 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'POST']>
+2025-08-14 11:15:41,012 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-14 11:15:41,012 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'POST']>
+2025-08-14 11:15:41,058 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'transfer-encoding', b'chunked'), (b'content-type', b'application/json'), (b'content-encoding', b'gzip'), (b'vary', b'accept-encoding, Origin, Access-Control-Request-Method, Access-Control-Request-Headers'), (b'date', b'Thu, 14 Aug 2025 03:15:40 GMT')])
+2025-08-14 11:15:41,059 - INFO - httpx - _client:1025 - HTTP Request: POST http://localhost:6333/collections/loveroom/points/delete?wait=true "HTTP/1.1 200 OK"
+2025-08-14 11:15:41,059 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'POST']>
+2025-08-14 11:15:41,059 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-14 11:15:41,060 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-14 11:15:41,060 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-14 11:15:41,060 - DEBUG - httpcore.connection - _trace:47 - close.started
+2025-08-14 11:15:41,060 - DEBUG - httpcore.connection - _trace:47 - close.complete
+2025-08-14 11:15:41,067 - DEBUG - llama_index.core.node_parser.node_utils - node_utils:44 - > Adding chunk: 脱敏失败
+2025-08-14 11:15:41,074 - DEBUG - volcenginesdkarkruntime._base_client - _base_client:194 - Request options: {'method': 'post', 'url': '/embeddings', 'body': {'input': ['脱敏失败'], 'model': 'doubao-embedding-text-240715', 'user': None, 'encoding_format': 'float'}, 'files': None}
+2025-08-14 11:15:41,075 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='ark.cn-beijing.volces.com' port=443 local_address=None timeout=60.0 socket_options=None
+2025-08-14 11:15:41,078 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1316f6680>
+2025-08-14 11:15:41,078 - DEBUG - httpcore.connection - _trace:47 - start_tls.started ssl_context=<ssl.SSLContext object at 0x12c9728c0> server_hostname='ark.cn-beijing.volces.com' timeout=60.0
+2025-08-14 11:15:41,107 - DEBUG - httpcore.connection - _trace:47 - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1316f5b40>
+2025-08-14 11:15:41,107 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'POST']>
+2025-08-14 11:15:41,107 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-14 11:15:41,107 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'POST']>
+2025-08-14 11:15:41,107 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-14 11:15:41,107 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'POST']>
+2025-08-14 11:15:41,264 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'server', b'istio-envoy'), (b'date', b'Thu, 14 Aug 2025 03:15:40 GMT'), (b'content-type', b'application/json; charset=utf-8'), (b'content-length', b'24325'), (b'x-client-request-id', b'20250814111541k0sXHx0pqYYrxg2cU6Hs'), (b'x-envoy-upstream-service-time', b'140'), (b'x-request-id', b'021755141340428613c5eeed2ce7964641154aacadf5f6bb95f5b')])
+2025-08-14 11:15:41,264 - INFO - httpx - _client:1025 - HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/embeddings "HTTP/1.1 200 OK"
+2025-08-14 11:15:41,264 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'POST']>
+2025-08-14 11:15:41,281 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-14 11:15:41,281 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-14 11:15:41,282 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-14 11:15:41,282 - DEBUG - volcenginesdkarkruntime._base_client - _base_client:456 - HTTP Request: POST https://ark.cn-beijing.volces.com/api/v3/embeddings "200 OK"
+2025-08-14 11:15:41,349 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='localhost' port=6333 local_address=None timeout=5.0 socket_options=None
+2025-08-14 11:15:41,351 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1316f7460>
+2025-08-14 11:15:41,351 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'PUT']>
+2025-08-14 11:15:41,352 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-08-14 11:15:41,352 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'PUT']>
+2025-08-14 11:15:41,352 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-08-14 11:15:41,352 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'PUT']>
+2025-08-14 11:15:41,369 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'transfer-encoding', b'chunked'), (b'vary', b'accept-encoding, Origin, Access-Control-Request-Method, Access-Control-Request-Headers'), (b'content-encoding', b'gzip'), (b'content-type', b'application/json'), (b'date', b'Thu, 14 Aug 2025 03:15:41 GMT')])
+2025-08-14 11:15:41,369 - INFO - httpx - _client:1025 - HTTP Request: PUT http://localhost:6333/collections/loveroom/points?wait=true "HTTP/1.1 200 OK"
+2025-08-14 11:15:41,370 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'PUT']>
+2025-08-14 11:15:41,370 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-08-14 11:15:41,370 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-08-14 11:15:41,370 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-08-14 11:15:41,370 - DEBUG - httpcore.connection - _trace:47 - close.started
+2025-08-14 11:15:41,370 - DEBUG - httpcore.connection - _trace:47 - close.complete
+2025-08-14 11:15:41,371 - INFO - root - server:214 - ID '3jf2' updated successfully with desensitized text.
