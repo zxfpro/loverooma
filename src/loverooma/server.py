@@ -36,6 +36,10 @@ de = Desensitization()
 #     ep.reload()
 #     return 'success'
 
+def load_config():
+    """ load config """
+    with importlib.resources.open_text('loverooma', 'config.yaml') as f:
+        return yaml.safe_load(f)
 
 @app.get(
     "/reload",
