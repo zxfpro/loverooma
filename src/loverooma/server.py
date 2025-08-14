@@ -44,7 +44,7 @@ def load_config():
     with importlib.resources.open_text('loverooma', 'config.yaml') as f:
         return yaml.safe_load(f)
 
-@app.get(
+@app.post(
     "/reload",
     summary="重新加载Embedding池数据",
     description="清空并重新初始化Embedding池。注意：这可能会导致短暂的服务中断或数据丢失。",
