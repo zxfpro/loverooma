@@ -3,7 +3,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 from loverooma.core import EmbeddingPool,Desensitization
 from loverooma.log import Log
-import yaml # 导入 yaml 库
 
 logger = Log.logger
 
@@ -38,40 +37,17 @@ de = Desensitization()
 #     return 'success'
 
 
-class ReloadConfig(BaseModel): # 定义新的 Pydantic 模型
-    Desensitization_prompt: str = Field(None, description="用于脱敏的提示词，如果提供将写入config.yaml。")
-    Evaluation_prompt: str = Field(None, description="用于评估的提示词，如果提供将写入config.yaml。")
-
-
-@app.post( # 将 GET 改为 POST 以便接收请求体
+@app.get(
     "/reload",
     summary="重新加载Embedding池数据",
-    description="清空并重新初始化Embedding池。注意：这可能会导致短暂的服务中断或数据丢失。可选地，可以在重新加载前更新config.yaml中的提示词。",
+    description="清空并重新初始化Embedding池。注意：这可能会导致短暂的服务中断或数据丢失。",
     response_description="表示操作是否成功。"
 )
-async def reload_endpoint(config: ReloadConfig = ReloadConfig()): # 接收新的 Pydantic 模型作为可选参数
+async def reload_endpoint():
     """
     重新加载Embedding池，通常用于清除缓存或重新从源加载数据。
     """
     try:
-        # 优化reload 提供一个 Desensitization_prompt, Evaluation_prompt  在reload 之前将这两个信息写入config.yaml
-        if config.Desensitization_prompt or config.Evaluation_prompt:
-            try:
-                with open('config.yaml', 'r') as f:
-                    cfg = yaml.safe_load(f)
-            except FileNotFoundError:
-                cfg = {} # 如果文件不存在，创建一个空字典
-
-            if config.Desensitization_prompt:
-                cfg['Desensitization_prompt'] = config.Desensitization_prompt
-                logger.info(f"Updated Desensitization_prompt in config.yaml.")
-            if config.Evaluation_prompt:
-                cfg['Evaluation_prompt'] = config.Evaluation_prompt
-                logger.info(f"Updated Evaluation_prompt in config.yaml.")
-
-            with open('config.yaml', 'w') as f:
-                yaml.dump(cfg, f, default_flow_style=False)
-            
         ep.reload()
         return {"status": "success", "message": "Embedding pool reloaded successfully."}
     except Exception as e:
