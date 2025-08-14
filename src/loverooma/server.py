@@ -1,4 +1,3 @@
-
 from fastapi import FastAPI, HTTPException, Header, status
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
@@ -190,9 +189,9 @@ def desensitization_endpoint(item: DesensitizationItem): # 使用Pydantic模型�
 
 @app.post( # 推荐使用POST进行数据发送，特别是文本内容可能较长
     "/update_with_desensitization",
-    summary="对文本进行脱敏处理",
-    description="接收一段文本，对其进行敏感信息（如手机号、身份证号等）的脱敏处理。",
-    response_description="脱敏后的文本或错误信息。"
+    summary="对文本进行脱敏处理并上传",
+    description="接收一段文本，对其进行敏感信息（如手机号、身份证号等）的脱敏处理后，将脱敏后的文本与ID关联并更新到Embedding池中。",
+    response_description="表示操作是否成功。"
 )
 def update_with_desensitization(item: UpdateItem): # 使用Pydantic模型进行输入验证
     """
@@ -200,6 +199,32 @@ def update_with_desensitization(item: UpdateItem): # 使用Pydantic模型进行�
     - **text**: 需要脱敏的原始文本。
     """
     #TODO 整合一个新的接口, 先脱敏后上传
+    try:
+        logger.info(f"Received text for desensitization and update: '{item.text[:100]}...' with ID: '{item.id}'")
+        desensitized_text = de.desensitization(text=item.text)
+
+        if desensitized_text == 'error':
+            logger.warning(f"Desensitization failed for text: '{item.text[:100]}...'. Returned 'error'.")
+            raise HTTPException(
+                status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+                detail="Desensitization process failed before update."
+            )
+        
+        ep.update(text=desensitized_text, id=item.id)
+        logger.info(f"ID '{item.id}' updated successfully with desensitized text.")
+        return {"status": "success", "message": f"ID '{item.id}' updated successfully with desensitized text."}
+    except ValueError as e:
+        logger.warning(f"Validation error during update with desensitization for ID '{item.id}': {e}")
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=str(e)
+        )
+    except Exception as e:
+        logger.error(f"An unexpected error occurred during update with desensitization for ID '{item.id}': {e}", exc_info=True)
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to update embedding for ID '{item.id}' after desensitization: {e}"
+        )
 
 if __name__ == "__main__":
     # 这是一个标准的 Python 入口点惯用法
