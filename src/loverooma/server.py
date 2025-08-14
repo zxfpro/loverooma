@@ -188,6 +188,18 @@ def desensitization_endpoint(item: DesensitizationItem): # 使用Pydantic模型�
         )
 
 
+@app.post( # 推荐使用POST进行数据发送，特别是文本内容可能较长
+    "/update_with_desensitization",
+    summary="对文本进行脱敏处理",
+    description="接收一段文本，对其进行敏感信息（如手机号、身份证号等）的脱敏处理。",
+    response_description="脱敏后的文本或错误信息。"
+)
+def update_with_desensitization(item: UpdateItem): # 使用Pydantic模型进行输入验证
+    """
+    对输入的文本进行脱敏操作。
+    - **text**: 需要脱敏的原始文本。
+    """
+    #TODO 整合一个新的接口, 先脱敏后上传
 
 if __name__ == "__main__":
     # 这是一个标准的 Python 入口点惯用法
