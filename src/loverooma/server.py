@@ -189,12 +189,9 @@ def update_with_desensitization(item: UpdateItem): # 使用Pydantic模型进行�
         desensitized_text = de.desensitization(text=item.text)
         #TODO 处理 desensitized_text 返回"脱敏失败" 关键字时, 对应的处理, 
 
-        if desensitized_text == 'error':
-            logger.warning(f"Desensitization failed for text: '{item.text[:100]}...'. Returned 'error'.")
-            raise HTTPException(
-                status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-                detail="Desensitization process failed before update."
-            )
+        if desensitized_text == 'error' or desensitized_text == "脱敏失败":
+            logger.warning(f"Desensitization failed for text: '{item.text[:100]}...'. Returned 'error' or '脱敏失败'. Skipping update.")
+            return {"status": "skipped", "message": f"Desensitization failed for ID '{item.id}', skipping update."}
         
         ep.update(text=desensitized_text, id=item.id)
         logger.info(f"ID '{item.id}' updated successfully with desensitized text.")
