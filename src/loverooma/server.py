@@ -162,20 +162,9 @@ def desensitization_endpoint(item: DesensitizationItem): # 使用Pydantic模型�
     """
     try:
         logger.info(f"Received text for desensitization: '{item.text[:100]}...'")
-        result = de.desensitization(text=item.text)
+        status,desensitized_text = de.desensitization(text=item.text)
+        return {"status": status, "message": desensitized_text}
 
-        if result == 'error': # 假设 'error' 是业务逻辑上的失败标识
-            logger.warning(f"Desensitization failed for text: '{item.text[:100]}...'. Returned 'error'.")
-            # 业务逻辑错误，返回 422 Unprocessable Entity 或 400 Bad Request
-            # 如果是文本内容本身导致无法脱敏，可以是 400
-            # 如果是内部处理问题，但不是 HTTP 5xx 级别，可以是 422
-            raise HTTPException(
-                status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, # 或者 400 Bad Request
-                detail="Desensitization process failed."
-            )
-        else:
-            logger.info(f"Text successfully desensitized. Original length: {len(item.text)}, Desensitized length: {len(result)}")
-            return {"status": "success", "desensitized_text": result}
     except ValueError as e: # 假设 de.desensitization 可能抛出 ValueError
         logger.warning(f"Validation error during desensitization: {e}")
         raise HTTPException(
@@ -204,16 +193,15 @@ def update_with_desensitization(item: UpdateItem): # 使用Pydantic模型进行�
     
     try:
         logger.info(f"Received text for desensitization and update: '{item.text[:100]}...' with ID: '{item.id}'")
-        desensitized_text = de.desensitization(text=item.text)
+        status,desensitized_text = de.desensitization(text=item.text)
         #TODO 处理 desensitized_text 返回"脱敏失败" 关键字时, 对应的处理, 
-
-        if desensitized_text == 'error' or desensitized_text == "脱敏失败":
-            logger.warning(f"Desensitization failed for text: '{item.text[:100]}...'. Returned 'error' or '脱敏失败'. Skipping update.")
-            return {"status": "skipped", "message": f"Desensitization failed for ID '{item.id}', skipping update."}
         
+
+        if status == "failed":
+            return {"status": status, "message": desensitized_text}
         ep.update(text=desensitized_text, id=item.id)
         logger.info(f"ID '{item.id}' updated successfully with desensitized text.")
-        return {"status": "success", "message": f"ID '{item.id}' updated successfully with desensitized text."}
+        return {"status": "success", "message": f"ID '{item.id}' updated successfully with {desensitized_text}."}
     except ValueError as e:
         logger.warning(f"Validation error during update with desensitization for ID '{item.id}': {e}")
         raise HTTPException(

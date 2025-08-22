@@ -134,11 +134,12 @@ class Desensitization():
             status = eva_result_json.get('status')
             review = eva_result_json.get("review")
             if status == "0":
-                return des_result
+                return "success", des_result
             elif status == "1":
-                return "脱敏失败 " + review
+                return "failed", "脱敏失败 " + review
             elif status == "2":
                 advice = review
-                
-        return "脱敏失败 执行异常"
+                text = des_result
+
+        return "failed", "脱敏失败 执行异常"
 
