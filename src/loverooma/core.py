@@ -10,6 +10,8 @@ from llama_index.core import VectorStoreIndex
 from llama_index.core import Document
 from loverooma.embedding_model import VolcanoEmbedding
 from loverooma.log import Log
+from llama_index.core import PromptTemplate
+import json
 
 logger = Log.logger
 def load_config():
@@ -115,16 +117,28 @@ class Desensitization():
             return False
 
     def desensitization(self,text):
-        desensitization_prompt = self.config.get("Desensitization_prompt","")
-        evaluation_prompt = self.config.get("Evaluation_prompt","")
+        desensitization_prompt_ = self.config.get("Desensitization_prompt","")
+        evaluation_prompt_ = self.config.get("Evaluation_prompt","")
+        desensitization_prompt = PromptTemplate(desensitization_prompt_)
+        evaluation_prompt = PromptTemplate(evaluation_prompt_)
+
+        advice = ""
         for i in range(self.config.get("roll_time",3)):
             logger.info(i)
-            des_result = self._prompt_chat(desensitization_prompt.format(text = text))
+            des_result = self._prompt_chat(desensitization_prompt.format(text = text,advice = advice))
             print(des_result,'des_result')
 
             eva_result = self._prompt_chat(evaluation_prompt.format(des_result = des_result))
             print(eva_result,'eva_result')
-            if self._postprocess(eva_result):
+            eva_result_json =  json.loads(eva_result)
+            status = eva_result_json.get('status')
+            review = eva_result_json.get("review")
+            if status == "0":
                 return des_result
-        return "脱敏失败"
+            elif status == "1":
+                return "脱敏失败 " + review
+            elif status == "2":
+                advice = review
+                
+        return "脱敏失败 执行异常"
 
