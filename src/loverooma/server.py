@@ -18,9 +18,9 @@ app = FastAPI(
 )
 
 origins = [
+    "*" # 暂时允许所有来源，生产环境应限制
     # "http://localhost:3000",  # 允许前端域名
     # "http://127.0.0.1:3000",
-    "*" # 暂时允许所有来源，生产环境应限制
 ]
 
 app.add_middleware(
@@ -214,6 +214,173 @@ def update_with_desensitization(item: UpdateItem): # 使用Pydantic模型进行�
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Failed to update embedding for ID '{item.id}' after desensitization: {e}"
         )
+    
+
+def total_score_call(S,init_score = 0,epsilon = 0.001,K = 0.8):
+    """
+    init_score = 0 
+    epsilon = 0.001 # 一个非常小的正数，确保0分也有微弱贡献，100分也不是完美1
+    K = 0.8       # 调整系数，0 < K <= 1。K越大，总分增长越快。
+    
+    """
+
+    total_score = init_score
+    for score in S:
+        # 1. 标准化每个分数到 (0, 1) 区间
+        normalized_score = (score*10 + epsilon) / (100 + epsilon)
+
+        # 2. 更新总分
+        # 每次增加的是“距离满分的剩余空间”的一个比例
+        total_score = total_score + (100 - total_score) * normalized_score * K
+
+        # 确保不会因为浮点数精度问题略微超过100，虽然理论上不会
+        if total_score >= 100 - 1e-9: # 留一点点余地，避免浮点数误差导致判断为100
+            total_score = 100 - 1e-9 # 强制设置一个非常接近100但不等于100的值
+            break # 如果已经非常接近100，可以提前终止
+
+    return total_score
+
+@app.get('/score_life_all')
+async def score_life_all(score_list:list,
+                         init_score: float = 0.0,
+                         epsilon:float = 0.001,
+                         K:float = 0.8, # 调整系数，0 < K <= 1。K越大，总分增长越快。
+                         ):
+    score = total_score_call(score_list,
+                             init_score = init_score,
+                             epsilon = epsilon,
+                             K = K)
+    return {"message": "success",
+            "score":score}
+
+@app.get('/score_life_topic')
+async def score_life_topic(score_list:list,
+                         init_score: float = 0.0,
+                         epsilon:float = 0.001,
+                         K:float = 0.8, # 调整系数，0 < K <= 1。K越大，总分增长越快。
+                         ):
+    score = total_score_call(score_list,
+                             init_score = init_score,
+                             epsilon = epsilon,
+                             K = K)
+    return {"message": "success",
+            "score":score}
+
+
+
+@app.get('/run_se')
+
+async def run_se():
+    system_prompt = """
+**System Prompt for Generating a Short Personal Autobiography from Interview Transcripts**
+
+You are an expert AI assistant tasked with crafting concise, first-person autobiographical narratives based on interview transcripts. Your primary goal is to distill the user's experiences and perspectives into a coherent and engaging short story, maintaining an authentic and personal tone.
+
+**Core Principles and Guidelines:**
+
+1.  **First-Person Narrative (Direct "I"):** The autobiography must be written entirely from the first-person perspective, starting directly with "我" (I) without introductory phrases like "我叫XX。" (My name is XX.) or similar framing.
+2.  **Focus on User's Experiences & Emotions:** Prioritize extracting the user's personal experiences, feelings, reflections, and significant life events as revealed in the interview.
+3.  **Conciseness & Storytelling:** Weave the extracted information into a fluid, storytelling format. Avoid simply listing facts; aim for a narrative flow that connects events and emotions.
+4.  **Length Adaptation:** The length of the autobiography should be proportionate to the amount of detail and depth provided in the interview segments. More detailed conversations allow for richer narratives, while brief exchanges will result in shorter pieces.
+5.  **Strategic Use of User Quotes (Minimised):**
+    *   **Purpose:** Only use direct quotes from the user when they are particularly evocative, insightful, or represent a "classic" statement that truly encapsulates a key idea or emotion.
+    *   **Quantity:** Aim for a minimal number of quotes (e.g., 1-2 per significant theme or section) to provide "点睛" (spot-on) emphasis without making the narrative feel like a transcript.
+    *   **Integration:** Seamlessly integrate quotes into the narrative using appropriate punctuation (e.g., full-width quotation marks “ ”).
+6.  **Analyze User's Intent & Focus:**
+    *   **Identify Engagement:** Pay close attention to topics the user elaborates on, shows enthusiasm for, or offers open-ended answers. These are the areas to focus on and expand.
+    *   **Identify Disinterest/Avoidance:** Crucially, if the user gives a closed-ended answer (e.g., "没有完全没有想过") or clearly indicates a reluctance to discuss a topic, **DO NOT include or elaborate on that topic** in the autobiography. This respects the user's boundaries and maintains narrative focus on their preferred areas.
+7.  **Maintain Original Tone/Style (if applicable):** If the original user's text has a particular literary flair, emotional depth, or descriptive quality (as in the "童年惊魂" example), strive to retain and amplify that style in the generated autobiography.
+8.  **Avoid AI-centric Language:** Do not use phrases like "As an AI, I have learned..." or "The AI asked..." – the output should be purely the user's story.
+9.  **Error Handling/Clarification (Internal Note - not for output):** If the input is too ambiguous or insufficient to form a coherent story, request more context or examples, but for this prompt, assume sufficient input is provided.
+
+**Input Format:**
+You will be provided with interview segments, typically in a Q&A format (e.g., `ai: [AI question] human: [User response]`).
+
+**Output Format:**
+A single, cohesive, first-person narrative reflecting the user's experiences.
+
+"""
+
+
+@app.get('/memory_card_score')
+async def memory_card_score(memory_card:str):
+    
+    system_prompt = """
+**System Prompt for Generating a Short Personal Autobiography from Interview Transcripts**
+
+You are an expert AI assistant tasked with crafting concise, first-person autobiographical narratives based on interview transcripts. Your primary goal is to distill the user's experiences and perspectives into a coherent and engaging short story, maintaining an authentic and personal tone.
+
+**Core Principles and Guidelines:**
+
+1.  **First-Person Narrative (Direct "I"):** The autobiography must be written entirely from the first-person perspective, starting directly with "我" (I) without introductory phrases like "我叫XX。" (My name is XX.) or similar framing.
+2.  **Focus on User's Experiences & Emotions:** Prioritize extracting the user's personal experiences, feelings, reflections, and significant life events as revealed in the interview.
+3.  **Conciseness & Storytelling:** Weave the extracted information into a fluid, storytelling format. Avoid simply listing facts; aim for a narrative flow that connects events and emotions.
+4.  **Length Adaptation:** The length of the autobiography should be proportionate to the amount of detail and depth provided in the interview segments. More detailed conversations allow for richer narratives, while brief exchanges will result in shorter pieces.
+5.  **Strategic Use of User Quotes (Minimised):**
+    *   **Purpose:** Only use direct quotes from the user when they are particularly evocative, insightful, or represent a "classic" statement that truly encapsulates a key idea or emotion.
+    *   **Quantity:** Aim for a minimal number of quotes (e.g., 1-2 per significant theme or section) to provide "点睛" (spot-on) emphasis without making the narrative feel like a transcript.
+    *   **Integration:** Seamlessly integrate quotes into the narrative using appropriate punctuation (e.g., full-width quotation marks “ ”).
+6.  **Analyze User's Intent & Focus:**
+    *   **Identify Engagement:** Pay close attention to topics the user elaborates on, shows enthusiasm for, or offers open-ended answers. These are the areas to focus on and expand.
+    *   **Identify Disinterest/Avoidance:** Crucially, if the user gives a closed-ended answer (e.g., "没有完全没有想过") or clearly indicates a reluctance to discuss a topic, **DO NOT include or elaborate on that topic** in the autobiography. This respects the user's boundaries and maintains narrative focus on their preferred areas.
+7.  **Maintain Original Tone/Style (if applicable):** If the original user's text has a particular literary flair, emotional depth, or descriptive quality (as in the "童年惊魂" example), strive to retain and amplify that style in the generated autobiography.
+8.  **Avoid AI-centric Language:** Do not use phrases like "As an AI, I have learned..." or "The AI asked..." – the output should be purely the user's story.
+9.  **Error Handling/Clarification (Internal Note - not for output):** If the input is too ambiguous or insufficient to form a coherent story, request more context or examples, but for this prompt, assume sufficient input is provided.
+
+**Input Format:**
+You will be provided with interview segments, typically in a Q&A format (e.g., `ai: [AI question] human: [User response]`).
+
+**Output Format:**
+A single, cohesive, first-person narrative reflecting the user's experiences.
+
+"""
+    result = bx.product(system_prompt + memory_card)
+    #TODO
+
+    return {"message": "success",
+            "text":result}
+
+
+@app.get('/memory_card_score')
+async def memory_card_score(memory_card:str):
+    
+    system_prompt = """
+System_prompt: 我会给到你一段文本描写, 我希望你可以对它进行打分  
+  
+具体的评分规则如下  
+  
+9-10 分    内容标准: 真实动人  
+7-9  分     内容标准: 细节丰富  
+5-7 分    内容标准: 内容完整  
+3-5  分     内容标准: 略显模糊  
+0-3 分    内容标准: 内容稀薄
+
+按照以下格式输出
+```json
+{"score":分数,
+"reason":理由}
+```
+Assistant: 好的，请您提供文本描写。我会按照您给出的评分规则进行打分。
+User:
+"""
+    result = bx.product(system_prompt + memory_card)
+    # TODO 提炼
+    """
+    {
+  "score": 7,
+  "reason": "内容完整，描绘了作者的出生地、童年生活方式、与玩伴的活动以及一个深刻的个人记忆（看星星）。细节方面，“山里的野孩子”、“各种疯跑”和“漫天繁星”提供了不错的画面感。如果能再多一些感官上的细节，比如山里的气味、奔跑时的感受或者星星的颜色和排列，可以达到更高的分数。"
+}
+    """
+
+    return {"message": "success",
+            "score":7}
+
+
+@app.get("/")
+async def root():
+    """ x """
+    return {"message": "LLM Service is running."}
+
 
 if __name__ == "__main__":
     # 这是一个标准的 Python 入口点惯用法
@@ -222,6 +389,11 @@ if __name__ == "__main__":
     import argparse
     import uvicorn
     from .log import Log
+    
+    
+    default=8010
+    
+
     parser = argparse.ArgumentParser(
         description="Start a simple HTTP server similar to http.server."
     )
@@ -230,36 +402,52 @@ if __name__ == "__main__":
         metavar='PORT',
         type=int,
         nargs='?', # 端口是可选的
-        default=8009,
-        help='Specify alternate port [default: 8000]'
+        default=default,
+        help=f'Specify alternate port [default: {default}]'
+    )
+    # 创建一个互斥组用于环境选择
+    group = parser.add_mutually_exclusive_group()
+
+    # 添加 --dev 选项
+    group.add_argument(
+        '--dev',
+        action='store_true', # 当存在 --dev 时，该值为 True
+        help='Run in development mode (default).'
     )
 
-    parser.add_argument(
-        '--env',
-        type=str,
-        default='dev', # 默认是开发环境
-        choices=['dev', 'prod'],
-        help='Set the environment (dev or prod) [default: dev]'
+    # 添加 --prod 选项
+    group.add_argument(
+        '--prod',
+        action='store_true', # 当存在 --prod 时，该值为 True
+        help='Run in production mode.'
     )
-
     args = parser.parse_args()
 
+    if args.prod:
+        env = "prod"
+    else:
+        # 如果 --prod 不存在，默认就是 dev
+        env = "dev"
+
     port = args.port
-    print(args.env)
-    if args.env == "dev":
+    if env == "dev":
         port += 100
-        Log.reset_level('debug',env = args.env)
+        Log.reset_level('debug',env = env)
+        reload = True
+        app_import_string = f"{__package__}.server:app" # <--- 关键修改：传递导入字符串
+    elif env == "prod":
+        Log.reset_level('info',env = env)# ['debug', 'info', 'warning', 'error', 'critical']
         reload = False
-    elif args.env == "prod":
-        Log.reset_level('info',env = args.env)# ['debug', 'info', 'warning', 'error', 'critical']
-        reload = False
+        app_import_string = app
     else:
         reload = False
+        app_import_string = app
+    
 
     # 使用 uvicorn.run() 来启动服务器
     # 参数对应于命令行选项
     uvicorn.run(
-        app, # 要加载的应用，格式是 "module_name:variable_name"
+        app_import_string,
         host="0.0.0.0",
         port=port,
         reload=reload  # 启用热重载
