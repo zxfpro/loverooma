@@ -2976,3 +2976,37 @@ UnboundLocalError: local variable 'advice' referenced before assignment
 2025-08-22 13:37:52,219 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
 2025-08-22 13:37:52,219 - DEBUG - openai._base_client - _base_client:1016 - HTTP Response: POST https://ark.cn-beijing.volces.com/api/v3/chat/completions "200 OK" Headers({'server': 'istio-envoy', 'date': 'Fri, 22 Aug 2025 05:37:51 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '1776', 'x-client-request-id': 'unknown-20250822133746-ppFfThXL', 'x-envoy-upstream-service-time': '6097', 'x-request-id': '02175584106610919dc7c0f191fa6bac3501eed3dae6c7eaab5fc'})
 2025-08-22 13:37:52,219 - DEBUG - openai._base_client - _base_client:1024 - request_id: 02175584106610919dc7c0f191fa6bac3501eed3dae6c7eaab5fc
+2025-11-06 15:33:05,811 - INFO - root - core:49 - reload
+2025-11-06 15:33:05,991 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='localhost' port=6333 local_address=None timeout=5.0 socket_options=None
+2025-11-06 15:33:05,995 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x12cc1cca0>
+2025-11-06 15:33:05,995 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'GET']>
+2025-11-06 15:33:05,996 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-11-06 15:33:05,996 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'GET']>
+2025-11-06 15:33:05,996 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-11-06 15:33:05,996 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'GET']>
+2025-11-06 15:33:06,043 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'transfer-encoding', b'chunked'), (b'vary', b'accept-encoding, Origin, Access-Control-Request-Method, Access-Control-Request-Headers'), (b'content-type', b'application/json'), (b'content-encoding', b'gzip'), (b'date', b'Thu, 06 Nov 2025 07:33:05 GMT')])
+2025-11-06 15:33:06,044 - INFO - httpx - _client:1025 - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-11-06 15:33:06,045 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'GET']>
+2025-11-06 15:33:06,046 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-11-06 15:33:06,046 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-11-06 15:33:06,046 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-11-06 15:33:06,046 - DEBUG - httpcore.connection - _trace:47 - close.started
+2025-11-06 15:33:06,046 - DEBUG - httpcore.connection - _trace:47 - close.complete
+2025-11-06 15:33:06,047 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.started host='localhost' port=6333 local_address=None timeout=5.0 socket_options=None
+2025-11-06 15:33:06,048 - DEBUG - httpcore.connection - _trace:47 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x12cc1d660>
+2025-11-06 15:33:06,048 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.started request=<Request [b'GET']>
+2025-11-06 15:33:06,048 - DEBUG - httpcore.http11 - _trace:47 - send_request_headers.complete
+2025-11-06 15:33:06,048 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.started request=<Request [b'GET']>
+2025-11-06 15:33:06,048 - DEBUG - httpcore.http11 - _trace:47 - send_request_body.complete
+2025-11-06 15:33:06,048 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.started request=<Request [b'GET']>
+2025-11-06 15:33:06,064 - DEBUG - httpcore.http11 - _trace:47 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'transfer-encoding', b'chunked'), (b'content-type', b'application/json'), (b'content-encoding', b'gzip'), (b'vary', b'accept-encoding, Origin, Access-Control-Request-Method, Access-Control-Request-Headers'), (b'date', b'Thu, 06 Nov 2025 07:33:05 GMT')])
+2025-11-06 15:33:06,064 - INFO - httpx - _client:1025 - HTTP Request: GET http://localhost:6333/collections/loveroom/exists "HTTP/1.1 200 OK"
+2025-11-06 15:33:06,065 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.started request=<Request [b'GET']>
+2025-11-06 15:33:06,065 - DEBUG - httpcore.http11 - _trace:47 - receive_response_body.complete
+2025-11-06 15:33:06,065 - DEBUG - httpcore.http11 - _trace:47 - response_closed.started
+2025-11-06 15:33:06,065 - DEBUG - httpcore.http11 - _trace:47 - response_closed.complete
+2025-11-06 15:33:06,065 - DEBUG - httpcore.connection - _trace:47 - close.started
+2025-11-06 15:33:06,065 - DEBUG - httpcore.connection - _trace:47 - close.complete
+2025-11-06 15:33:07,330 - DEBUG - root - core:63 - == reload start ==
+2025-11-06 15:33:07,330 - DEBUG - root - core:64 - callback_manager=<llama_index.core.callbacks.base.CallbackManager object at 0x12c9bb9a0> similarity_cutoff=0.98
+2025-11-06 15:33:07,394 - DEBUG - asyncio - selector_events:54 - Using selector: KqueueSelector
