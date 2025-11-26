@@ -162,8 +162,8 @@ def desensitization_endpoint(item: DesensitizationItem): # 使用Pydantic模型�
     """
     try:
         logger.info(f"Received text for desensitization: '{item.text[:100]}...'")
-        status,desensitized_text = de.desensitization(text=item.text)
-        return {"status": status, "message": desensitized_text}
+        status_de,desensitized_text = de.desensitization(text=item.text)
+        return {"status": status_de, "message": desensitized_text}
 
     except ValueError as e: # 假设 de.desensitization 可能抛出 ValueError
         logger.warning(f"Validation error during desensitization: {e}")
@@ -193,12 +193,12 @@ def update_with_desensitization(item: UpdateItem): # 使用Pydantic模型进行�
     
     try:
         logger.info(f"Received text for desensitization and update: '{item.text[:100]}...' with ID: '{item.id}'")
-        status,desensitized_text = de.desensitization(text=item.text)
+        status_de,desensitized_text = de.desensitization(text=item.text)
         #TODO 处理 desensitized_text 返回"脱敏失败" 关键字时, 对应的处理, 
         
 
-        if status == "failed":
-            return {"status": status, "message": desensitized_text}
+        if status_de == "failed":
+            return {"status": status_de, "message": desensitized_text}
         ep.update(text=desensitized_text, id=item.id)
         logger.info(f"ID '{item.id}' updated successfully with desensitized text.")
         return {"status": "success", "message": f"ID '{item.id}' updated successfully with {desensitized_text}."}
