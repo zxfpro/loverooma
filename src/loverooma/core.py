@@ -30,7 +30,8 @@ class EmbeddingPool():
         config = load_config()
         
         client = qdrant_client.QdrantClient(
-            host=config.get("host","localhost"),
+            # host=config.get("host","localhost"),
+            host = "qdrant",
             port=config.get("port",6333),
         )
 
