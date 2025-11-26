@@ -7,3 +7,8 @@
 # 爱心小屋用途
 pass
 
+# 修改llama_index
+
+core/vector_stores/utils.py: 66
+metadata["_node_content"] = json.dumps(node_dict,ensure_ascii = False)#TODO
+切记

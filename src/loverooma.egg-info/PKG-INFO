@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: loverooma
-Version: 0.1.11
+Version: 0.1.12
 Summary: Add your description here
 Requires-Python: >=3.10
 Description-Content-Type: text/markdown
@@ -22,3 +22,8 @@ Requires-Dist: volcengine-python-sdk>=4.0.10
 # 爱心小屋用途
 pass
 
+# 修改llama_index
+
+core/vector_stores/utils.py: 66
+metadata["_node_content"] = json.dumps(node_dict,ensure_ascii = False)#TODO
+切记

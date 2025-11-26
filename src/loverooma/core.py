@@ -9,29 +9,33 @@ from llama_index.vector_stores.qdrant import QdrantVectorStore
 from llama_index.core import VectorStoreIndex
 from llama_index.core import Document
 from loverooma.embedding_model import VolcanoEmbedding
-from loverooma.log import Log
+
 from llama_index.core import PromptTemplate
 import json
+import os
+from loverooma import logger
 
-logger = Log.logger
-def load_config():
-    """ load config """
-    with importlib.resources.open_text('loverooma', 'config.yaml') as f:
-        return yaml.safe_load(f)
 
 class EmbeddingPool():
     def __init__(self):
+        self.host = os.getenv("host","localhost")
+        self.port = int(os.getenv("port",6333))
+        self.similarity_cutoff = float(os.getenv("similarity_cutoff",0.5))
+        self.QDRANT_COLLECTION_NAME = os.getenv("collection_name","loveroom")
+        self.model_name = os.getenv("model_name","doubao-embedding-text-240715")
+        self.api_key = os.getenv("api_key",'')
+        self.similarity_top_k = int(os.getenv("similarity_top_k",2))
         self.reload()
+        
 
     def create_collection(self,collection_name:str = "loveroom",vector_dimension:str = 1536):
         distance_metric = models.Distance.COSINE # 使用余弦相似度
 
         # 2. 定义 Collection 参数
-        config = load_config()
-        
+
         client = qdrant_client.QdrantClient(
-            host=config.get("host","localhost"),
-            port=config.get("port",6333),
+            host=self.host,
+            port=self.port,
         )
 
         # 3. 创建 Collection (推荐使用 recreate_collection)
@@ -48,15 +52,14 @@ class EmbeddingPool():
     def reload(self):
         logger.info('reload')
         # 默认仓库要被创建的
-        config = load_config()
-        self.postprocess = SimilarityPostprocessor(similarity_cutoff=config.get("similarity_cutoff",0.5))
+        self.postprocess = SimilarityPostprocessor(similarity_cutoff=self.similarity_cutoff)
         client = qdrant_client.QdrantClient(
-            host=config.get("host","localhost"),
-            port=config.get("port",6333),
+            host=self.host,
+            port=self.port,
         )
 
         # ADD 2025年11月26日13:44:24
-        self.QDRANT_COLLECTION_NAME = config.get("collection_name","loveroom")
+
         collections = client.get_collections().collections
         existing_collection_names = {c.name for c in collections}
         if self.QDRANT_COLLECTION_NAME not in existing_collection_names:
@@ -67,11 +70,11 @@ class EmbeddingPool():
 
         # ADD END
 
-        vector_store = QdrantVectorStore(client=client, collection_name=config.get("collection_name","loveroom"))
-        self.embed_model = VolcanoEmbedding(model_name = config.get("model_name","doubao-embedding-text-240715"),
-                                            api_key =config.get("api_key",''))
+        vector_store = QdrantVectorStore(client=client, collection_name=self.QDRANT_COLLECTION_NAME)
+        self.embed_model = VolcanoEmbedding(model_name = self.model_name,
+                                            api_key =self.api_key)
         self.index = VectorStoreIndex.from_vector_store(vector_store,embed_model=self.embed_model)
-        self.retriver = self.index.as_retriever(similarity_top_k=config.get("similarity_top_k",2))
+        self.retriver = self.index.as_retriever(similarity_top_k=self.similarity_top_k)
 
         logger.debug("== reload start ==")
         logger.debug(self.postprocess)
@@ -101,12 +104,14 @@ from openai import OpenAI
 
 class Desensitization():
     def __init__(self):
-        self.config = load_config()
         self.client = OpenAI(
             base_url='https://ark.cn-beijing.volces.com/api/v3',
-            api_key=self.config.get("api_key",''),
+            api_key=os.getenv("api_key",''),
         )
-        self.model_name = self.config.get("chat_model_name",'')
+        self.model_name = os.getenv("chat_model_name",'')
+        self.desensitization_prompt_ = os.getenv("Desensitization_prompt","")
+        self.evaluation_prompt_ = os.getenv("Evaluation_prompt","")
+        self.roll_time = int(os.getenv("roll_time",3))
 
     def _prompt_chat(self,prompt:str):
         response = self.client.chat.completions.create(
@@ -130,19 +135,17 @@ class Desensitization():
             return False
 
     def desensitization(self,text):
-        desensitization_prompt_ = self.config.get("Desensitization_prompt","")
-        evaluation_prompt_ = self.config.get("Evaluation_prompt","")
+        desensitization_prompt_ = self.desensitization_prompt_
+        evaluation_prompt_ = self.evaluation_prompt_
         desensitization_prompt = PromptTemplate(desensitization_prompt_)
         evaluation_prompt = PromptTemplate(evaluation_prompt_)
 
         advice = ""
-        for i in range(self.config.get("roll_time",3)):
+        for i in range(self.roll_time):
             logger.info(i)
             des_result = self._prompt_chat(desensitization_prompt.format(text = text,advice = advice))
-            print(des_result,'des_result')
-
             eva_result = self._prompt_chat(evaluation_prompt.format(des_result = des_result))
-            print(eva_result,'eva_result')
+            
             eva_result_json =  json.loads(eva_result)
             status = eva_result_json.get('status')
             review = eva_result_json.get("review")

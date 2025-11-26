@@ -1,79 +1,47 @@
-from fastapi import FastAPI, HTTPException, Header, status
+# server
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+import argparse
+import uvicorn
+
+from fastapi import FastAPI, HTTPException, Header, status
 from pydantic import BaseModel, Field
 from loverooma.core import EmbeddingPool,Desensitization
-from loverooma.log import Log
-import importlib.resources
-import yaml
-
-
-logger = Log.logger
+from loverooma import logger
+default = 8009
 
 app = FastAPI(
-    title="Embedding Service API",
-    description="一个用于管理和查询文本嵌入的简单API服务。",
-    version="1.0.0",
-    docs_url="/docs",  # OpenAPI (Swagger UI) 文档
-    redoc_url="/redoc" # ReDoc 文档
+    title="LLM Service",
+    description="Provides an OpenAI-compatible API for custom large language models.",
+    version="1.0.1",
+    # debug=True, 
+    # docs_url="/api-docs",
 )
 
+# --- Configure CORS ---
 origins = [
-    # "http://localhost:3000",  # 允许前端域名
-    # "http://127.0.0.1:3000",
-    "*" # 暂时允许所有来源，生产环境应限制
+    "*", 
 ]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],  # 允许所有HTTP方法
-    allow_headers=["*"],  # 允许所有请求头
+    allow_origins=origins,  # Specifies the allowed origins
+    allow_credentials=True,  # Allows cookies/authorization headers
+    allow_methods=["*"],  # Allows all methods (GET, POST, OPTIONS, etc.)
+    allow_headers=["*"],  # Allows all headers (Content-Type, Authorization, etc.)
 )
+# --- End CORS Configuration ---
+
 
 ep = EmbeddingPool()
 
 de = Desensitization()
-# @app.get("/reload")
-# async def reload():
-#     ep.reload()
-#     return 'success'
 
-def load_config():
-    """ load config """
-    with importlib.resources.open_text('loverooma', 'config.yaml') as f:
-        return yaml.safe_load(f)
+@app.get("/")
+async def root():
+    """server run"""
+    return {"message": "LLM Service is running."}
 
-@app.get(
-    "/reload",
-    summary="重新加载Embedding池数据",
-    description="清空并重新初始化Embedding池。注意：这可能会导致短暂的服务中断或数据丢失。",
-    response_description="表示操作是否成功。"
-)
-async def reload_endpoint(Desensitization_prompt: str = Header(None), Evaluation_prompt: str = Header(None)):
-    """
-    重新加载Embedding池，通常用于清除缓存或重新从源加载数据。
-    """
-    logger.info(Desensitization_prompt)
-    logger.info(Evaluation_prompt)
-    try:
-        if Desensitization_prompt or Evaluation_prompt:
-            config = load_config()
-            if Desensitization_prompt:
-                config['Desensitization_prompt'] = Desensitization_prompt
-            if Evaluation_prompt:
-                config['Evaluation_prompt'] = Evaluation_prompt
-            with importlib.resources.path('loverooma', 'config.yaml') as config_path:
-                with open(config_path, 'w') as f:
-                    yaml.safe_dump(config, f)
-        ep.reload()
-        return {"status": "success", "message": "Embedding pool reloaded successfully."}
-    except Exception as e:
-        logger.error(f"Error reloading EmbeddingPool: {e}")
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"Failed to reload embedding pool: {e}"
-        )
 
 
 class UpdateItem(BaseModel):
@@ -108,11 +76,10 @@ def update_endpoint(item: UpdateItem):
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Failed to update embedding for ID '{item.id}': {e}"
         )
-
+    
 
 class QueryItem(BaseModel):
     query: str = Field(..., min_length=1, max_length=500, description="用于搜索的查询文本。")
-
 
 @app.post(
     "/search",
@@ -134,16 +101,6 @@ def search_endpoint(query_item: QueryItem): # 使用Pydantic模型进行查询�
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Failed to perform search: {e}"
         )
-
-
-# @app.get('/desensitization')
-# def desensitization(text:str):
-
-#     result = de.desensitization(text = text)
-#     if result == 'error':
-#         return "error"
-#     else:
-#         return result
 
 class DesensitizationItem(BaseModel):
     text: str = Field(..., min_length=1, max_length=5000, description="需要进行脱敏处理的文本。") # 文本可能较长，增加 max_length
@@ -177,6 +134,7 @@ def desensitization_endpoint(item: DesensitizationItem): # 使用Pydantic模型�
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"An internal server error occurred during desensitization: {e}"
         )
+    
 
 
 @app.post( # 推荐使用POST进行数据发送，特别是文本内容可能较长
@@ -214,53 +172,66 @@ def update_with_desensitization(item: UpdateItem): # 使用Pydantic模型进行�
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Failed to update embedding for ID '{item.id}' after desensitization: {e}"
         )
+    
 
 if __name__ == "__main__":
     # 这是一个标准的 Python 入口点惯用法
     # 当脚本直接运行时 (__name__ == "__main__")，这里的代码会被执行
     # 当通过 python -m YourPackageName 执行 __main__.py 时，__name__ 也是 "__main__"
-    import argparse
-    import uvicorn
-    from .log import Log
+    # 27
+    
     parser = argparse.ArgumentParser(
         description="Start a simple HTTP server similar to http.server."
     )
     parser.add_argument(
-        'port',
-        metavar='PORT',
+        "port",
+        metavar="PORT",
         type=int,
-        nargs='?', # 端口是可选的
-        default=8009,
-        help='Specify alternate port [default: 8000]'
+        nargs="?",  # 端口是可选的
+        default=default,
+        help=f"Specify alternate port [default: {default}]",
+    )
+    # 创建一个互斥组用于环境选择
+    group = parser.add_mutually_exclusive_group()
+
+    # 添加 --dev 选项
+    group.add_argument(
+        "--dev",
+        action="store_true",  # 当存在 --dev 时，该值为 True
+        help="Run in development mode (default).",
     )
 
-    parser.add_argument(
-        '--env',
-        type=str,
-        default='dev', # 默认是开发环境
-        choices=['dev', 'prod'],
-        help='Set the environment (dev or prod) [default: dev]'
+    # 添加 --prod 选项
+    group.add_argument(
+        "--prod",
+        action="store_true",  # 当存在 --prod 时，该值为 True
+        help="Run in production mode.",
     )
-
     args = parser.parse_args()
 
+    if args.prod:
+        env = "prod"
+    else:
+        # 如果 --prod 不存在，默认就是 dev
+        env = "dev"
+
     port = args.port
-    print(args.env)
-    if args.env == "dev":
+
+    if env == "dev":
         port += 100
-        Log.reset_level('debug',env = args.env)
+        reload = True
+        app_import_string = (
+            f"{__package__}.server:app"  # <--- 关键修改：传递导入字符串
+        )
+    elif env == "prod":
         reload = False
-    elif args.env == "prod":
-        Log.reset_level('info',env = args.env)# ['debug', 'info', 'warning', 'error', 'critical']
-        reload = False
+        app_import_string = app
     else:
         reload = False
+        app_import_string = app
 
     # 使用 uvicorn.run() 来启动服务器
     # 参数对应于命令行选项
     uvicorn.run(
-        app, # 要加载的应用，格式是 "module_name:variable_name"
-        host="0.0.0.0",
-        port=port,
-        reload=reload  # 启用热重载
+        app_import_string, host="0.0.0.0", port=port, reload=reload  # 启用热重载
     )

@@ -1009,7 +1009,7 @@ wheels = [
 
 [[package]]
 name = "loverooma"
-version = "0.1.6"
+version = "0.1.11"
 source = { virtual = "." }
 dependencies = [
     { name = "fastapi" },

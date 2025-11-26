@@ -1,7 +1,6 @@
 README.md
 pyproject.toml
 src/loverooma/__init__.py
-src/loverooma/config.yaml
 src/loverooma/core.py
 src/loverooma/embedding_model.py
 src/loverooma/log.py
