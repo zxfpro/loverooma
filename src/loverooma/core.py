@@ -54,6 +54,19 @@ class EmbeddingPool():
             host=config.get("host","localhost"),
             port=config.get("port",6333),
         )
+
+        # ADD 2025年11月26日13:44:24
+        self.QDRANT_COLLECTION_NAME = config.get("collection_name","loveroom")
+        collections = client.get_collections().collections
+        existing_collection_names = {c.name for c in collections}
+        if self.QDRANT_COLLECTION_NAME not in existing_collection_names:
+            client.create_collection(
+                collection_name=self.QDRANT_COLLECTION_NAME,
+                vectors_config=models.VectorParams(size=2560, distance=models.Distance.COSINE),
+            )
+
+        # ADD END
+
         vector_store = QdrantVectorStore(client=client, collection_name=config.get("collection_name","loveroom"))
         self.embed_model = VolcanoEmbedding(model_name = config.get("model_name","doubao-embedding-text-240715"),
                                             api_key =config.get("api_key",''))

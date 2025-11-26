@@ -6,8 +6,8 @@ RUN pip install --no-cache-dir pyyaml qdrant_client llama_index -i https://pypi.
 # RUN pip install --no-cache-dir loverooma==0.1.9 -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 # 安装 .whl 文件 安装是屏蔽
-COPY ./dist/loverooma-0.1.9-py3-none-any.whl . 
-RUN pip install --no-cache-dir loverooma-0.1.9-py3-none-any.whl
+COPY ./dist/loverooma-0.1.10-py3-none-any.whl . 
+RUN pip install --no-cache-dir loverooma-0.1.10-py3-none-any.whl
 
 # 暴露应用运行的端口
 EXPOSE 80
