@@ -1,0 +1,47 @@
+version: '3.8'
+# docker-compose up web
+# docker-compose up -d web
+
+services:
+  # docker buildx build --platform linux/amd64,linux/arm64 -t 823042332/serverz:1.0.1 /Users/zhaoxuefeng/GitHub/serverz --push
+
+  qdrant:
+    image: qdrant/qdrant
+    ports:
+      - "6333:6333" # 宿主机访问 Qdrant 的端口
+    volumes:
+      - ./qdrant_data:/qdrant/storage
+    restart: always
+
+  loverooma:
+    build: /Users/zhaoxuefeng/GitHub/loverooma
+    container_name: loverooma
+    ports:
+      - "8009:80" 
+    environment:
+      host: qdrant # 使用 Qdrant 服务的名称作为主机名
+      port: 6333
+      similarity_top_k: 3
+      similarity_cutoff: 0.98
+      collection_name: "loveroom"
+      api_key: "935fda9c-0fc0-4b6e-ac80-ab02f2d17fdb"
+      model_name: "doubao-embedding-text-240715"
+      chat_model_name: "doubao-seed-1-6-250615"
+      Desensitization_prompt: "\n# 角色\n你是一名专业的数据脱敏专家，擅长文本隐私保护。\n\n# 任务\n你将收到一段描述某个事件的文本，要求在不破坏时间顺序和事件逻辑的情况下，对文本进行脱敏处理，达到以下目标：\n1. 保留整个事件的前因后果、时间线和逻辑关系。\n2. 去除或模糊所有可以识别个人或机构身份的信息，包括但不限于：\n   - 姓名（用“某人”、“甲/乙”、“小A”等代称）\n   - 公司或机构名称（用“某企业”、“某学校”等代称）\n   - 精确地址（保留城市或省份，模糊详细地址）\n   - 职务或身份信息（泛化处理，如“总裁”→“管理人员”）\n   - 联系方式、证件号、账号（用“****”替代或移除）\n3. 保留事件发生时间、地点的合理描述（如“2024年5月”或“上海市某地”）。\n\n# 输出要求\n- 使用自然流畅的语言复写原文，保证事件逻辑清晰。\n- 不能添加虚假信息，但可以用模糊化描述替代敏感信息。\n- 最终输出必须是脱敏后的文本，不要解释规则。\n\n# 示例\n原文：\n2024年5月5日，张三在上海市浦东新区世纪大道100号的华为公司办公楼与李四发生争执，导致项目延期。\n\n脱敏后：\n2024年5月5日，某员工在上海市某地的某通信企业办公楼与另一员工发生争执，导致项目延期。\n\n# 请根据以上规则处理以下文本：\n{text}\n如果有{advice}，按照修改意见修改。没有则根据规则修改\n"
+      Evaluation_prompt: '\n# 任务\n你将收到一段文本，任务是判断该文本是否已完成匿名化脱敏，并根据结果返回对应状态和审核意见。请严格按照以下要求执行：\n\n脱敏文本\n{des_result}\n\n# 判断标准\n## 已脱敏的定义：\n文本中不包含任何能够直接或间接识别个人真实身份的信息，包括但不限于：\n姓名,手机号,身份证号,学号,住址,家庭成员姓名,学校名称\n,公司名称\n## 允许保留：\n模糊描述（如“某市”、“某学校”）\n虚构代称（如“小王”改成“某同学”）\n非特定地名（如“公园”）\n\n# 状态定义\n使用数字定义状态\n "0"：表示通过，文本完全符合脱敏要求，可以直接入库。\n"1"：表示内容不适合入库，文本含有违法、暴力、色情、歧视、辱骂等不适宜内容。\n"2"：表示内容脱敏不完全，重新脱敏，文本存在个人身份信息或敏感信息未完全脱敏。\n\n状态存在冲突，1>2>0\n# 输出格式\n如果文本符合脱敏标准，输出：\n{"status":"0","review":"null"}\n\n如果文本含有违法或不适合内容，输出：\n{"status":"1","review":"原因说明"}\n\n如果文本未完全脱敏，输出：\n{"status":"2","review":"修改意见"}\n:'
+      roll_time: 3
+
+    depends_on:
+      - qdrant # 确保 qdrant 服务先启动
+
+    restart: always # 容器退出或Docker守护进程重启时，总是重新启动容器
+
+
+
+networks:
+  webnet:
+    driver: bridge
+
+
+volumes:
+  serverz: # 定义一个数据卷来持久化 Qdrant 的数据
